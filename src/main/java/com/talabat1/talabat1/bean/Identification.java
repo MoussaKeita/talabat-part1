@@ -25,7 +25,7 @@ public class Identification implements Serializable {
     private String login;
     private String mdp;  // mot de passe //
     private String mdpConf;  // mot de passe de confirmation //
-    private String test;
+    
 
     // les constructeur // 
     public Identification() {
