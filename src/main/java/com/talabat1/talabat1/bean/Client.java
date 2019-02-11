@@ -22,7 +22,7 @@ public class Client implements Serializable {
 
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes;
-
+//test//
 
     private static final long serialVersionUID = 1L;
     @Id
