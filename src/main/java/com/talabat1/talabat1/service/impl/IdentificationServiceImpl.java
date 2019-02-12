@@ -38,7 +38,7 @@ public class IdentificationServiceImpl implements IdentificationService {
     @Override
     public Client connection(String log, String mdp) {
         Identification identification = identificationDao.findLog(log);
-        if (!identification.getMdp().equals(mdp) || !identification.equals(log)) {
+        if (!identification.getMdp().equals(mdp)) {
             return null;
         } else {
             return identificationDao.findClientByLog(log);
