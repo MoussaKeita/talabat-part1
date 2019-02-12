@@ -5,23 +5,33 @@
  */
 package com.talabat1.talabat1.service.impl;
 
-import com.talabat1.talabat1.bean.Client;
+import com.talabat1.talabat1.bean.Identification;
+import com.talabat1.talabat1.dao.IdentificationDao;
 import com.talabat1.talabat1.service.IdentificationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author wadie
  */
+@Service
 public class IdentificationServiceImpl implements IdentificationService {
 
-    @Override
-    public Client findClientByLog(String log) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    @Autowired
+    private IdentificationDao identificationDao;
 
     @Override
     public int verificationDeCNX(String log) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Identification identification = identificationDao.findLog(log);
+        
+        // je dois créer le cas du mot de passe different du mdp confi//
+        if (identification != null) {
+            return -1;
+        }else {
+            return 1;
+        }
+
     }
-    
+
 }

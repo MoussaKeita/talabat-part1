@@ -16,5 +16,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface IdentificationDao extends JpaRepository<Identification, Long>{
-    public Client findByLog(String log);
+    public Client findClientByLog(String log);
+    public Identification findLog(String log);
 }
