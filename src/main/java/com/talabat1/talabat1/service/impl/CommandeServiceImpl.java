@@ -41,15 +41,17 @@ public class CommandeServiceImpl implements CommandeService {
            return -1;
        }
        else{
-           commande.setTotalPaiement(0D);
-           commandeDao.save(commande);
-           //on recupere la liste de PlatCommande afin de l'enregistrer avec la commande//
+           double total=0.0;
            List<PlatCommande> platCommandes = commande.getPlatCommandes();
            for(PlatCommande platCommande : platCommandes){
-               platCommande.setCommande(commande);//association de la commande avec la liste PlatCommande//
-               platCommandeService.creer(platCommande);
+               total+=platCommande.getPrix()*platCommande.getQuantite();
            }
-       }
+           commande.setTotal(total);
+           /***************************************/
+           commande.setTotalPaiement(0D);
+           commandeDao.save(commande);
+           }
+       
        return 1;
     }
 

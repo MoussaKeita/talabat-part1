@@ -5,6 +5,7 @@
  */
 package com.talabat1.talabat1.service.impl;
 
+import com.talabat1.talabat1.bean.Commande;
 import com.talabat1.talabat1.bean.PlatCommande;
 import com.talabat1.talabat1.dao.PlatCommandeDao;
 import com.talabat1.talabat1.service.PlatCommandeService;
@@ -26,9 +27,13 @@ public class PlatCommandeImpl implements PlatCommandeService{
     }
 
     @Override
-    public int creer(PlatCommande platCommande) {
-         platCommandeDao.save(platCommande);
-         return 1;
+    public int savePlat(Commande commande) {
+       List<PlatCommande> platCommandes = commande.getPlatCommandes();
+       for(PlatCommande platCommande : platCommandes){
+           platCommande.setCommande(commande);//association de la commande avec la liste PlatCommande//
+           platCommandeDao.save(platCommande);
+       }
+       return 1;
     }
 /**********GETTER AND SETTER******************/
         public PlatCommandeDao getPlatCommandeDao() {
@@ -38,4 +43,5 @@ public class PlatCommandeImpl implements PlatCommandeService{
     public void setPlatCommandeDao(PlatCommandeDao platCommandeDao) {
         this.platCommandeDao = platCommandeDao;
     }
+
 }

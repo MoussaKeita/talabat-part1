@@ -5,6 +5,7 @@
  */
 package com.talabat1.talabat1.service;
 
+import com.talabat1.talabat1.bean.Commande;
 import com.talabat1.talabat1.bean.PlatCommande;
 import java.util.List;
 
@@ -15,6 +16,6 @@ import java.util.List;
 public interface PlatCommandeService {
     
     public List<PlatCommande> findPlatCommmandeByReference(String reference);
-    public int creer (PlatCommande platCommande);
+    public int savePlat (Commande commande);
    // public int modifier(Commande commande);
 }
