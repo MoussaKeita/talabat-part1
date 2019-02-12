@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IdentificationDao extends JpaRepository<Identification, Long>{
     public Client findClientByLog(String log);
-    public Identification findLog(String log);
+    public Identification findLog(String log);  //permet de chercher si le log saisi est déja enregisté sur la BD,on utilise cette Methode dans la methode "vérification de cnx"//
 }

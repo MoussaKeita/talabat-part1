@@ -13,5 +13,5 @@ import com.talabat1.talabat1.bean.Client;
  */
 public interface IdentificationService {
     public int verificationDeCNX(String log); // Méthode pour virifier si le login se trouve dans la base de donnée// 
-    
+    public Client connection(String log,String mdp);// identification du client sur son espace client//
 }
