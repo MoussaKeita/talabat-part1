@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.talabat1.talabat1.impl;
+package com.talabat1.talabat1.service.impl;
 
 import com.talabat1.talabat1.bean.Commande;
 import com.talabat1.talabat1.bean.PlatCommande;
