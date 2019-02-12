@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.talabat1.talabat1.dao;
+package com.talabat1.talabat1.service;
 
 import com.talabat1.talabat1.bean.Client;
-import com.talabat1.talabat1.bean.Identification;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author wadie
  */
-@Repository
-public interface IdentificationDao extends JpaRepository<Identification, Long>{
+public interface IdentificationService {
     public Client findByLog(String log);
+    
 }
