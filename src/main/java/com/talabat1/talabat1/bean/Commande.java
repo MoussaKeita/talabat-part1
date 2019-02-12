@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -22,21 +23,24 @@ import javax.persistence.OneToMany;
 @Entity
 public class Commande implements Serializable {
 
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
+    // les attributs
     private Long id;
     private String reference;
     private Double totalPaiement;
     private Double total;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date DateCommande;
     @ManyToOne
     private Client client;
-    
+
     @OneToMany(mappedBy = "commande")
     private List<PlatCommande> platCommandes;
 
+     // les getters et setters //
     public Long getId() {
         return id;
     }
@@ -60,7 +64,7 @@ public class Commande implements Serializable {
     public void setTotalPaiement(Double totalPaiement) {
         this.totalPaiement = totalPaiement;
     }
-  
+
     public Double getTotal() {
         return total;
     }
@@ -117,5 +121,5 @@ public class Commande implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.Commande[ id=" + id + " ]";
     }
-    
+
 }

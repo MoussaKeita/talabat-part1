@@ -22,12 +22,15 @@ public class Paiement implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
+    // les attributs 
     private Long id;
     private String refCommande;
     private Double montant;
     @ManyToOne
     private TypePaiement typePaiement;
 
+    // les getters et setters 
     public Long getId() {
         return id;
     }
@@ -84,5 +87,5 @@ public class Paiement implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.Paiement[ id=" + id + " ]";
     }
-    
+
 }
