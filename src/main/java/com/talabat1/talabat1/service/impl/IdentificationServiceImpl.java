@@ -15,7 +15,12 @@ import com.talabat1.talabat1.service.IdentificationService;
 public class IdentificationServiceImpl implements IdentificationService {
 
     @Override
-    public Client findByLog(String log) {
+    public Client findClientByLog(String log) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int verificationDeCNX(String log) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
