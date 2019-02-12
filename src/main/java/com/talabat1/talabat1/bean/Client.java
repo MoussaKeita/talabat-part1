@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -20,9 +21,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Client implements Serializable {
 
-    @OneToMany(mappedBy = "client")
-    private List<Commande> commandes;
-//test//
+  
+// les attributs //
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -32,7 +32,14 @@ public class Client implements Serializable {
     private String prenom;
     private String adresse;
     private String contact;
+      @OneToOne(mappedBy = "client")
+    private Identification identification;
 
+    @OneToMany(mappedBy = "client")
+    private List<Commande> commandes;
+
+    
+    // les getters et setters //
     public String getId() {
         return id;
     }
@@ -73,6 +80,14 @@ public class Client implements Serializable {
         this.contact = contact;
     }
 
+    public Identification getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(Identification identification) {
+        this.identification = identification;
+    }
+
     public List<Commande> getCommandes() {
         return commandes;
     }
@@ -80,6 +95,9 @@ public class Client implements Serializable {
     public void setCommandes(List<Commande> commandes) {
         this.commandes = commandes;
     }
+
+   
+    
 
     @Override
     public int hashCode() {

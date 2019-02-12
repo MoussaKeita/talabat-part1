@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,6 +26,8 @@ public class Identification implements Serializable {
     private String login;
     private String mdp;  // mot de passe //
     private String mdpConf;  // mot de passe de confirmation //
+    @OneToOne
+    private Client client;
     
 
     // les constructeur // 
