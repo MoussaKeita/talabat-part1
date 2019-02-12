@@ -10,11 +10,13 @@ import com.talabat1.talabat1.dao.PlatCommandeDao;
 import com.talabat1.talabat1.service.PlatCommandeService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Keita Moussa
  */
+@Service
 public class PlatCommandeImpl implements PlatCommandeService{
  @Autowired
  private PlatCommandeDao platCommandeDao;
