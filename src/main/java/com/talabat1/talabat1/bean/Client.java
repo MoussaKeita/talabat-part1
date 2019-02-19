@@ -27,11 +27,11 @@ public class Client implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String nom;
     private String prenom;
     private String adresse;
-    private String contact;
+    private Long contact;
       @OneToOne(mappedBy = "client")
     private Identification identification;
 
@@ -40,11 +40,11 @@ public class Client implements Serializable {
 
     
     // les getters et setters //
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,11 +72,11 @@ public class Client implements Serializable {
         this.adresse = adresse;
     }
 
-    public String getContact() {
+    public Long getContact() {
         return contact;
     }
 
-    public void setContact(String contact) {
+    public void setContact(Long contact) {
         this.contact = contact;
     }
 

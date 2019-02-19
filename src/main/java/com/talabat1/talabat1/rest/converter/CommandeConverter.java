@@ -7,22 +7,29 @@ package com.talabat1.talabat1.rest.converter;
 
 import com.talabat1.talabat1.bean.Commande;
 import com.talabat1.talabat1.rest.vo.CommandeVo;
+import java.util.List;
 
 /**
  *
  * @author wadie
  */
-public class CommandeConverter implements AbstractConverter<Commande,CommandeVo>{
-
+public class CommandeConverter extends AbstractConverter<Commande, CommandeVo> {
+    
     @Override
     public Commande toItem(CommandeVo vo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (vo == null) {
+            return null;
+        } else {
+            Commande commande = new Commande();
+            commande.setId(vo.getId());
+            return commande;
+        }
+        
     }
-
+    
     @Override
     public CommandeVo toVO(Commande t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
-
     
 }
