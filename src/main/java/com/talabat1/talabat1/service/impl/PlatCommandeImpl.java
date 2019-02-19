@@ -29,9 +29,12 @@ public class PlatCommandeImpl implements PlatCommandeService{
     @Override
     public int savePlat(Commande commande) {
        List<PlatCommande> platCommandes = commande.getPlatCommandes();
+       
+       if(platCommandes !=null){
        for(PlatCommande platCommande : platCommandes){
            platCommande.setCommande(commande);//association de la commande avec la liste PlatCommande//
            platCommandeDao.save(platCommande);
+                    }
        }
        return 1;
     }

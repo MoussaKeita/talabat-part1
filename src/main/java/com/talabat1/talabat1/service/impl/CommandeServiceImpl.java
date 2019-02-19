@@ -44,8 +44,10 @@ public class CommandeServiceImpl implements CommandeService {
         } else {
             double total = 0.0;
             List<PlatCommande> platCommandes = commande.getPlatCommandes();
-            for (PlatCommande platCommande : platCommandes) {
-                total += platCommande.getPrix() * platCommande.getQuantite();
+            if (platCommandes != null) {
+                for (PlatCommande platCommande : platCommandes) {
+                    total += platCommande.getPrix() * platCommande.getQuantite();
+                }
             }
             commande.setTotal(total);
             /**
