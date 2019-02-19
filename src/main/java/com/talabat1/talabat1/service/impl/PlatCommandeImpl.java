@@ -23,7 +23,7 @@ public class PlatCommandeImpl implements PlatCommandeService{
  private PlatCommandeDao platCommandeDao;
     @Override
     public List<PlatCommande> findPlatCommmandeByReference(String reference) {
-     return platCommandeDao.findByReference(reference);
+     return platCommandeDao.findByCommandeReference(reference);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class PlatCommande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String refPlat;
+    private String refPlat; 
     private Double prix;
     private Double quantite;
     @ManyToOne

@@ -25,7 +25,6 @@ public class Paiement implements Serializable {
 
     // les attributs 
     private Long id;
-    private String refCommande;
     private Double montant;
     @ManyToOne
     private TypePaiement typePaiement;
@@ -37,14 +36,6 @@ public class Paiement implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getRefCommande() {
-        return refCommande;
-    }
-
-    public void setRefCommande(String refCommande) {
-        this.refCommande = refCommande;
     }
 
     public Double getMontant() {
