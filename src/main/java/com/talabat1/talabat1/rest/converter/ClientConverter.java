@@ -23,7 +23,6 @@ public class ClientConverter extends AbstractConverter<Client, ClientVo> {
             client.setAdresse(vo.getAdresse());
             client.setNom(vo.getNom());
             client.setPrenom(vo.getPrenom());
-            client.setIdentification(vo.getIdentification()); //***//
            // client.setContact(tovo.getContact());
             return client;
         }

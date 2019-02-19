@@ -21,9 +21,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Client implements Serializable {
 
-  
 // les attributs //
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,13 +30,28 @@ public class Client implements Serializable {
     private String prenom;
     private String adresse;
     private Long contact;
-      @OneToOne(mappedBy = "client")
-    private Identification identification;
+    private String login;
+    private String password;
 
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes;
 
-    
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     // les getters et setters //
     public Long getId() {
         return id;
@@ -80,14 +93,6 @@ public class Client implements Serializable {
         this.contact = contact;
     }
 
-    public Identification getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(Identification identification) {
-        this.identification = identification;
-    }
-
     public List<Commande> getCommandes() {
         return commandes;
     }
@@ -95,9 +100,6 @@ public class Client implements Serializable {
     public void setCommandes(List<Commande> commandes) {
         this.commandes = commandes;
     }
-
-   
-    
 
     @Override
     public int hashCode() {
@@ -123,5 +125,5 @@ public class Client implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.Client[ id=" + id + " ]";
     }
-    
+
 }

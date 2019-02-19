@@ -21,9 +21,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class PlatCommande implements Serializable {
 
-    @OneToMany(mappedBy = "platCommande")
-    private List<TypeSupplement> typeSupplements;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +30,9 @@ public class PlatCommande implements Serializable {
     private Double quantite;
     @ManyToOne
     private Commande commande;
+
+    @OneToMany(mappedBy = "platCommande")
+    private List<TypeSupplement> typeSupplements;
 
     public Long getId() {
         return id;
@@ -106,5 +106,5 @@ public class PlatCommande implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.PlatCommande[ id=" + id + " ]";
     }
-    
+
 }

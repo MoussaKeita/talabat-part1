@@ -5,7 +5,6 @@
  */
 package com.talabat1.talabat1.rest.vo;
 
-import com.talabat1.talabat1.bean.Identification;
 import java.util.List;
 
 /**
@@ -18,7 +17,6 @@ public class ClientVo {
     private String prenom;
     private String adresse;
     private String contact;
-    private Identification identification;
     private List<CommandeVo> commandesVo;
     
     // les getters et setters //
@@ -61,14 +59,6 @@ public class ClientVo {
 
     public void setContact(String contact) {
         this.contact = contact;
-    }
-
-    public Identification getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(Identification identification) {
-        this.identification = identification;
     }
 
     public List<CommandeVo> getCommandesVo() {

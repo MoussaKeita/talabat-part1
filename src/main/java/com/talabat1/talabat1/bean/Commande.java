@@ -26,21 +26,19 @@ public class Commande implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    // les attributs
     private Long id;
     private String reference;
     private Double totalPaiement;
     private Double total;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date DateCommande;
+    private Date dateCommande;
     @ManyToOne
     private Client client;
 
     @OneToMany(mappedBy = "commande")
     private List<PlatCommande> platCommandes;
 
-     // les getters et setters //
+    // les getters et setters //
     public Long getId() {
         return id;
     }
@@ -82,11 +80,11 @@ public class Commande implements Serializable {
     }
 
     public Date getDateCommande() {
-        return DateCommande;
+        return dateCommande;
     }
 
-    public void setDateCommande(Date DateCommande) {
-        this.DateCommande = DateCommande;
+    public void setDateCommande(Date dateCommande) {
+        this.dateCommande = dateCommande;
     }
 
     public List<PlatCommande> getPlatCommandes() {

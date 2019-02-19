@@ -6,7 +6,6 @@
 package com.talabat1.talabat1.dao;
 
 import com.talabat1.talabat1.bean.Commande;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CommandeDao extends JpaRepository<Commande, Long> {
-    public List<Commande> findAllCommande();
-    public Commande findCommandeByReference(String reference);
+    public Commande findByReference(String reference);
 }

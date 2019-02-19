@@ -24,30 +24,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("talabat1/commandes")
 public class CommandeRest {
+
     @Autowired
     private CommandeService commandeService;// meme chose que le proxy//
-@GetMapping("")
+
+    @GetMapping("")
     public List<Commande> findAllCommande() {
         return commandeService.findAllCommande();
     }
-@GetMapping("/reference/{reference}")
+
+    @GetMapping("/reference/{reference}")
     public Commande findCommandeByReference(String reference) {
         return commandeService.findCommandeByReference(reference);
     }
-@PostMapping("/")
+
+    @PostMapping("/")
     public int creer(@RequestBody Commande commande) {
         return commandeService.creer(commande);
     }
-@PutMapping("/reference/{reference}/montant/{montant}")
+
+    @PutMapping("/reference/{reference}/montant/{montant}")
     public int payer(String reference, Double montant) {
         return commandeService.payer(reference, montant);
     }
-@DeleteMapping("/reference{reference}")
+
+    @DeleteMapping("/reference{reference}")
     public int supprimer(String reference) {
         return commandeService.supprimer(reference);
     }
-    
-    
 
     public CommandeService getCommandeService() {
         return commandeService;
@@ -56,6 +60,5 @@ public class CommandeRest {
     public void setCommandeService(CommandeService commandeService) {
         this.commandeService = commandeService;
     }
-    
-    
+
 }
