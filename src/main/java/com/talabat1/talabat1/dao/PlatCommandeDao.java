@@ -16,5 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PlatCommandeDao extends JpaRepository<PlatCommande, Long> {
-   public List<PlatCommande> findPlatCommmandeByReference(String reference);
+   public List<PlatCommande> findByReference(String reference);
 }
