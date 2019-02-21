@@ -53,7 +53,6 @@ public class IdentificationServiceImpl implements IdentificationService {
 
     @Override
     public Client connection(String log, String mdp) {
-        // int res = verificationDeCNX(log);
         // if(res==)
         return client;
     }
