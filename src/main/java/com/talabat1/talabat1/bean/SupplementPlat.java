@@ -23,9 +23,9 @@ public class SupplementPlat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    // private String nom_Type;
     private Double quantite;
-    private Double total_Supp;
+    private double prix;
+    //private Double total_Supp;
     @ManyToOne
     private Supplement supplement;
     @ManyToOne
@@ -64,13 +64,15 @@ public class SupplementPlat implements Serializable {
         this.platCommande = platCommande;
     }
 
-    public Double getTotal_Supp() {
-        return total_Supp;
+    public double getPrix() {
+        return prix;
     }
 
-    public void setTotal_Supp(Double total_Supp) {
-        this.total_Supp = total_Supp;
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
+
+
 
     @Override
     public int hashCode() {

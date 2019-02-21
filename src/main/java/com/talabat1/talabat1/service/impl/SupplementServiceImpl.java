@@ -31,7 +31,7 @@ public class SupplementServiceImpl implements SupplementService{
             return -1;
         }
         else{
-         //supplement.set
+         supplement.setTotal_Supp(0D);
             supplementDao.save(supplement);
         }
         return 1;
@@ -43,7 +43,13 @@ public class SupplementServiceImpl implements SupplementService{
       if(su ==null){
           return -1;
       }
-      
+      else{
+          double total=0.0;
+          
+          double nvMontant = su.getTotal_Supp()+ montant;
+          su.setTotal_Supp(montant);
+      }
+      return 1;
     }
 
     @Override

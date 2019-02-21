@@ -25,10 +25,12 @@ public class Supplement implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
-    private double prix;
+    private Double total_Supp;
     private String type_Supp;
-    @OneToMany(mappedBy = "supplement")
-    private List<SupplementPlat> Supplements_Plats;
+        @OneToMany(mappedBy = "supplement")
+    private List<SupplementPlat> supplementPlats;
+
+    
 
     // les getters et setters //
     public Long getId() {
@@ -47,22 +49,15 @@ public class Supplement implements Serializable {
         this.libelle = libelle;
     }
 
-    public List<SupplementPlat> getTypeSupplements() {
-        return Supplements_Plats;
+    public Double getTotal_Supp() {
+        return total_Supp;
     }
 
-    public void setTypeSupplements(List<SupplementPlat> typeSupplements) {
-        this.Supplements_Plats = typeSupplements;
+    public void setTotal_Supp(Double total_Supp) {
+        this.total_Supp = total_Supp;
     }
 
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
+    
     public String getType_Supp() {
         return type_Supp;
     }
@@ -70,6 +65,15 @@ public class Supplement implements Serializable {
     public void setType_Supp(String type_Supp) {
         this.type_Supp = type_Supp;
     }
+
+    public List<SupplementPlat> getSupplementPlats() {
+        return supplementPlats;
+    }
+
+    public void setSupplementPlats(List<SupplementPlat> supplementPlats) {
+        this.supplementPlats = supplementPlats;
+    }
+
 
     @Override
     public int hashCode() {
