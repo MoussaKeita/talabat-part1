@@ -31,7 +31,7 @@ public class SupplementServiceImpl implements SupplementService{
             return -1;
         }
         else{
-         // supplement.set
+         //supplement.set
             supplementDao.save(supplement);
         }
         return 1;
@@ -39,7 +39,11 @@ public class SupplementServiceImpl implements SupplementService{
 
     @Override
     public int payer(String libelle, Double montant) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      Supplement su = findSupplementByLibelle(libelle);
+      if(su ==null){
+          return -1;
+      }
+      
     }
 
     @Override
