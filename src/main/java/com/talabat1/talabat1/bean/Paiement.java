@@ -6,11 +6,13 @@
 package com.talabat1.talabat1.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -26,10 +28,20 @@ public class Paiement implements Serializable {
     // les attributs 
     private Long id;
     private Double montant;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date date_de_paiment;
     @ManyToOne
     private TypePaiement typePaiement;
 
-    // les getters et setters 
+    // les getters et setters
+    public Date getDate_de_paiment() {
+        return date_de_paiment;
+    }
+
+    public void setDate_de_paiment(Date date_de_paiment) {
+        this.date_de_paiment = date_de_paiment;
+    }
+
     public Long getId() {
         return id;
     }

@@ -20,15 +20,15 @@ import javax.persistence.OneToMany;
 @Entity
 public class TypePaiement implements Serializable {
 
-    @OneToMany(mappedBy = "typePaiement")
-    private List<Paiement> paiements;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
+    @OneToMany(mappedBy = "typePaiement")
+    private List<Paiement> paiements;
 
+    // les getters et setters //
     public Long getId() {
         return id;
     }
@@ -77,5 +77,5 @@ public class TypePaiement implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.TypePaiement[ id=" + id + " ]";
     }
-    
+
 }
