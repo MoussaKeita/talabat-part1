@@ -28,7 +28,9 @@ public class Supplement implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
+    private double prix;
 
+    // les getters et setters //
     public Long getId() {
         return id;
     }
@@ -51,6 +53,14 @@ public class Supplement implements Serializable {
 
     public void setTypeSupplements(List<TypeSupplement> typeSupplements) {
         this.typeSupplements = typeSupplements;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 
     @Override
@@ -77,5 +87,5 @@ public class Supplement implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.Supplement[ id=" + id + " ]";
     }
-    
+
 }

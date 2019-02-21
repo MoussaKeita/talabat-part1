@@ -6,7 +6,6 @@
 package com.talabat1.talabat1.bean;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,14 +23,14 @@ public class TypeSupplement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Date date;
-    private Double prix;
+    private String nom_Type;
     private Double quantite;
     @ManyToOne
     private Supplement supplement;
     @ManyToOne
     private PlatCommande platCommande;
 
+    // les getters et setters //
     public Long getId() {
         return id;
     }
@@ -40,21 +39,6 @@ public class TypeSupplement implements Serializable {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(Double prix) {
-        this.prix = prix;
-    }
 
     public Double getQuantite() {
         return quantite;
@@ -78,6 +62,14 @@ public class TypeSupplement implements Serializable {
 
     public void setPlatCommande(PlatCommande platCommande) {
         this.platCommande = platCommande;
+    }
+
+    public String getNom_Type() {
+        return nom_Type;
+    }
+
+    public void setNom_Type(String nom_Type) {
+        this.nom_Type = nom_Type;
     }
 
     @Override
@@ -104,5 +96,5 @@ public class TypeSupplement implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.TypeSupplement[ id=" + id + " ]";
     }
-    
+
 }
