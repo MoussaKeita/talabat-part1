@@ -29,9 +29,10 @@ public class Client implements Serializable {
     private String nom;
     private String prenom;
     private String adresse;
-    private Long contact;
+    private Double  contact;
     private String login;
     private String password;
+    private String password_Confirmmation;
 
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes;
@@ -51,8 +52,16 @@ public class Client implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public String getPassword_Confirmmation() {
+        return password_Confirmmation;
+    }
 
     // les getters et setters //
+    public void setPassword_Confirmmation(String password_Confirmmation) {    
+        this.password_Confirmmation = password_Confirmmation;
+    }
+
     public Long getId() {
         return id;
     }
@@ -85,11 +94,11 @@ public class Client implements Serializable {
         this.adresse = adresse;
     }
 
-    public Long getContact() {
+    public Double getContact() {
         return contact;
     }
 
-    public void setContact(Long contact) {
+    public void setContact(Double contact) {
         this.contact = contact;
     }
 
