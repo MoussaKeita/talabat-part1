@@ -5,10 +5,14 @@
  */
 package com.talabat1.talabat1.service;
 
+import com.talabat1.talabat1.bean.Paiement;
+
 /**
  *
  * @author wadie
  */
-public interface PaiementService  {
-    
+public interface PaiementService {
+
+    public Paiement creer(Paiement paiement);
+
 }

@@ -33,7 +33,8 @@ public class PlatCommande implements Serializable {
 
     @OneToMany(mappedBy = "platCommande")
     private List<SupplementPlat> typeSupplements;
-
+    
+    // les getters et setters //
     public Long getId() {
         return id;
     }

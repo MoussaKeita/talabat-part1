@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -38,7 +39,18 @@ public class Commande implements Serializable {
     @OneToMany(mappedBy = "commande")
     private List<PlatCommande> platCommandes;
 
+    @OneToOne(mappedBy = "commande")
+    private Paiement paiement;
+    
+    public Paiement getPaiement() {
+        return paiement;
+    }
+
     // les getters et setters //
+    public void setPaiement(Paiement paiement) {    
+        this.paiement = paiement;
+    }
+
     public Long getId() {
         return id;
     }

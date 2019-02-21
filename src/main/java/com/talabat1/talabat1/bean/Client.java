@@ -36,6 +36,8 @@ public class Client implements Serializable {
 
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes;
+    
+    // les getters et setters //
 
     public String getLogin() {
         return login;

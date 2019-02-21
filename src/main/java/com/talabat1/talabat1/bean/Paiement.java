@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -32,8 +33,18 @@ public class Paiement implements Serializable {
     private Date date_de_paiment;
     @ManyToOne
     private TypePaiement typePaiement;
+    @OneToOne
+    private Commande commande;
 
     // les getters et setters
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
     public Date getDate_de_paiment() {
         return date_de_paiment;
     }

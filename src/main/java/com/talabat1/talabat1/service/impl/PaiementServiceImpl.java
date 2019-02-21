@@ -5,6 +5,7 @@
  */
 package com.talabat1.talabat1.service.impl;
 
+import com.talabat1.talabat1.bean.Paiement;
 import com.talabat1.talabat1.service.PaiementService;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PaiementServiceImpl implements PaiementService {
+
+    @Override
+    public Paiement creer(Paiement paiement) {
+        return 
+    }
 
 }
