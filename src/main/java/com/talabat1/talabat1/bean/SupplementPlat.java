@@ -17,14 +17,15 @@ import javax.persistence.ManyToOne;
  * @author Keita Moussa
  */
 @Entity
-public class TypeSupplement implements Serializable {
+public class SupplementPlat implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nom_Type;
+    // private String nom_Type;
     private Double quantite;
+    private Double total_Supp;
     @ManyToOne
     private Supplement supplement;
     @ManyToOne
@@ -38,7 +39,6 @@ public class TypeSupplement implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public Double getQuantite() {
         return quantite;
@@ -64,12 +64,12 @@ public class TypeSupplement implements Serializable {
         this.platCommande = platCommande;
     }
 
-    public String getNom_Type() {
-        return nom_Type;
+    public Double getTotal_Supp() {
+        return total_Supp;
     }
 
-    public void setNom_Type(String nom_Type) {
-        this.nom_Type = nom_Type;
+    public void setTotal_Supp(Double total_Supp) {
+        this.total_Supp = total_Supp;
     }
 
     @Override
@@ -82,10 +82,10 @@ public class TypeSupplement implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TypeSupplement)) {
+        if (!(object instanceof SupplementPlat)) {
             return false;
         }
-        TypeSupplement other = (TypeSupplement) object;
+        SupplementPlat other = (SupplementPlat) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

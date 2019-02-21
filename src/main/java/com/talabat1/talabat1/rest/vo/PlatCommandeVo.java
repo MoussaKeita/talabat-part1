@@ -5,7 +5,7 @@
  */
 package com.talabat1.talabat1.rest.vo;
 
-import com.talabat1.talabat1.bean.TypeSupplement;
+import com.talabat1.talabat1.bean.SupplementPlat;
 import java.util.List;
 
 /**
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class PlatCommandeVo {
 
-    private List<TypeSupplement> typeSupplements;
+    private List<SupplementPlat> typeSupplements;
     private static final long serialVersionUID = 1L;
     private Long id;
     private String refPlat;
@@ -24,11 +24,11 @@ public class PlatCommandeVo {
     
     // les getters et setters //
 
-    public List<TypeSupplement> getTypeSupplements() {
+    public List<SupplementPlat> getTypeSupplements() {
         return typeSupplements;
     }
 
-    public void setTypeSupplements(List<TypeSupplement> typeSupplements) {
+    public void setTypeSupplements(List<SupplementPlat> typeSupplements) {
         this.typeSupplements = typeSupplements;
     }
 

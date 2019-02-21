@@ -31,7 +31,7 @@ public class SupplementServiceImpl implements SupplementService{
             return -1;
         }
         else{
-          // supplement.set
+         // supplement.set
             supplementDao.save(supplement);
         }
         return 1;

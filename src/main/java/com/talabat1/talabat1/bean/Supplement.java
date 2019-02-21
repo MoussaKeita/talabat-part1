@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
 public class Supplement implements Serializable {
 
     @OneToMany(mappedBy = "supplement")
-    private List<TypeSupplement> typeSupplements;
+    private List<SupplementPlat> typeSupplements;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -29,6 +29,7 @@ public class Supplement implements Serializable {
     private Long id;
     private String libelle;
     private double prix;
+    private String type_Supp;
 
     // les getters et setters //
     public Long getId() {
@@ -47,11 +48,11 @@ public class Supplement implements Serializable {
         this.libelle = libelle;
     }
 
-    public List<TypeSupplement> getTypeSupplements() {
+    public List<SupplementPlat> getTypeSupplements() {
         return typeSupplements;
     }
 
-    public void setTypeSupplements(List<TypeSupplement> typeSupplements) {
+    public void setTypeSupplements(List<SupplementPlat> typeSupplements) {
         this.typeSupplements = typeSupplements;
     }
 
@@ -62,6 +63,15 @@ public class Supplement implements Serializable {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+
+    public String getType_Supp() {
+        return type_Supp;
+    }
+
+    public void setType_Supp(String type_Supp) {
+        this.type_Supp = type_Supp;
+    }
+    
 
     @Override
     public int hashCode() {
