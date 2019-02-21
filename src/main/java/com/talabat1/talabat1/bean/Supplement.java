@@ -20,9 +20,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Supplement implements Serializable {
 
-    @OneToMany(mappedBy = "supplement")
-    private List<SupplementPlat> typeSupplements;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +27,8 @@ public class Supplement implements Serializable {
     private String libelle;
     private double prix;
     private String type_Supp;
+    @OneToMany(mappedBy = "supplement")
+    private List<SupplementPlat> Supplements_Plats;
 
     // les getters et setters //
     public Long getId() {
@@ -49,11 +48,11 @@ public class Supplement implements Serializable {
     }
 
     public List<SupplementPlat> getTypeSupplements() {
-        return typeSupplements;
+        return Supplements_Plats;
     }
 
     public void setTypeSupplements(List<SupplementPlat> typeSupplements) {
-        this.typeSupplements = typeSupplements;
+        this.Supplements_Plats = typeSupplements;
     }
 
     public double getPrix() {
@@ -71,7 +70,6 @@ public class Supplement implements Serializable {
     public void setType_Supp(String type_Supp) {
         this.type_Supp = type_Supp;
     }
-    
 
     @Override
     public int hashCode() {
