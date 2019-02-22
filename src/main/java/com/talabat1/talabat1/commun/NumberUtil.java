@@ -5,7 +5,6 @@
  */
 package com.talabat1.talabat1.commun;
 
-import java.math.BigDecimal;
 
 /**
  *
@@ -15,15 +14,15 @@ public class NumberUtil {
     
     private static final String CHAINE_VIDE = "";
 
-    public static BigDecimal toBigDecimal(String value) {
+    public static Double toDouble(String value) {
         if (value == null || value.isEmpty()) {
-            return BigDecimal.ZERO;
+            return null;
         } else {
-            return new BigDecimal(value);
+            return new Double(value);
         }
     }
     
-    public static String toString(BigDecimal value) {
+    public static String toString(Double value) {
         if (value == null) {
             return CHAINE_VIDE;
         } else {

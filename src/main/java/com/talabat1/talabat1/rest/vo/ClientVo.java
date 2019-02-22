@@ -12,21 +12,39 @@ import java.util.List;
  * @author wadie
  */
 public class ClientVo {
+
     private Long id;
+    private String Log;
     private String nom;
     private String prenom;
     private String adresse;
     private String contact;
+    private String password;
     private List<CommandeVo> commandesVo;
-    
-    // les getters et setters //
 
+    // les getters et setters //
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLog() {
+        return Log;
+    }
+
+    public void setLog(String Log) {
+        this.Log = Log;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNom() {
@@ -68,6 +86,5 @@ public class ClientVo {
     public void setCommandesVo(List<CommandeVo> commandesVo) {
         this.commandesVo = commandesVo;
     }
-    
-    
+
 }

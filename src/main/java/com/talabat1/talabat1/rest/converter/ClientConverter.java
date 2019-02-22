@@ -6,6 +6,7 @@
 package com.talabat1.talabat1.rest.converter;
 
 import com.talabat1.talabat1.bean.Client;
+import com.talabat1.talabat1.commun.NumberUtil;
 import com.talabat1.talabat1.rest.vo.ClientVo;
 
 /**
@@ -19,11 +20,16 @@ public class ClientConverter extends AbstractConverter<Client, ClientVo> {
         if (vo == null) {
             return null;
         } else {
+            
             Client client = new Client();
-            client.setAdresse(vo.getAdresse());
+            client.setId(vo.getId());
             client.setNom(vo.getNom());
             client.setPrenom(vo.getPrenom());
-           // client.setContact(tovo.getContact());
+            client.setAdresse(vo.getAdresse());
+            client.setContact(NumberUtil.toDouble(vo.getContact()));
+            client.setLogin(vo.getLog());
+            client.setPassword(vo.getPassword());
+            client.setCommandes(new CommandeConverter().toItem(vo.getCommandesVo()));
             return client;
         }
     }
