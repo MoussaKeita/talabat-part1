@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 /**
  *
  * @author Keita Moussa
+ * le bean qui va communiquer avec le 2eme MicroService
  */
 @Entity
 public class PlatCommande implements Serializable {

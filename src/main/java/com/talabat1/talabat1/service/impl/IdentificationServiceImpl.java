@@ -8,8 +8,6 @@ package com.talabat1.talabat1.service.impl;
 import com.talabat1.talabat1.bean.Client;
 import com.talabat1.talabat1.dao.ClientDao;
 import com.talabat1.talabat1.service.IdentificationService;
-import java.util.HashSet;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

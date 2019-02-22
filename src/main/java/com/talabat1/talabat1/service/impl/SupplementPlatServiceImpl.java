@@ -39,6 +39,7 @@ public class SupplementPlatServiceImpl implements SupplementPlatService {
     @Override
     public int saveSupplementPlat(SupplementPlat supplementPlat) {
         //List<SupplementPlat> supplementPlats = supplementPlat.get
+        return 1;
     }
 
 }

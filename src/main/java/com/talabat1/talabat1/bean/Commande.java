@@ -67,6 +67,7 @@ public class Commande implements Serializable {
         this.reference = reference;
     }
 
+
     public Double getTotalPaiement() {
         return totalPaiement;
     }
