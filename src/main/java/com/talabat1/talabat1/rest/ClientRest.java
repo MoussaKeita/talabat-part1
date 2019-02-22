@@ -8,6 +8,10 @@ package com.talabat1.talabat1.rest;
 import com.talabat1.talabat1.bean.Client;
 import com.talabat1.talabat1.service.IdentificationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,16 +26,19 @@ public class ClientRest {
     @Autowired
     IdentificationService identificationService;
 
-    public int verificationDeCNX(String log, String mdp, String mdpConf) {
+    @PostMapping("/newClient")
+    public Client creer(@RequestBody Client c) {
+        return identificationService.creer(c);
+    }
+
+    @GetMapping("/log/{log}/mdp/{mdp}/mdpConf/{mdpConf}")
+    public int verificationDeCNX(@PathVariable String log, @PathVariable String mdp, @PathVariable String mdpConf) {
         return identificationService.verificationDeCNX(log, mdp, mdpConf);
     }
 
-    public Client connection(String log, String mdp) {
+    @GetMapping("/log/{log}/mdp/{mdp}/")
+    public Client connection(@PathVariable String log, @PathVariable String mdp) {
         return identificationService.connection(log, mdp);
-    }
-
-    public Client creer(Client c) {
-        return identificationService.creer(c);
     }
 
 }
