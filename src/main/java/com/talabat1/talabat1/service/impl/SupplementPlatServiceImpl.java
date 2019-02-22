@@ -20,18 +20,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SupplementPlatServiceImpl implements SupplementPlatService {
-    @Autowired
-    private SupplementPlatDao supplementPlatDao;
-
-    @Override
-    public List<SupplementPlat> findBySupplement(String libelle) {
-      return supplementPlatDao.findBySupplement(libelle);
-    }
-
-    @Override
-    public int saveSupplementPlat(SupplementPlat supplementPlat) {
-     List<SupplementPlat> supplementPlats = supplementPlat.get;
-    }
 
     public SupplementPlatDao getSupplementPlatDao() {
         return supplementPlatDao;
@@ -40,7 +28,17 @@ public class SupplementPlatServiceImpl implements SupplementPlatService {
     public void setSupplementPlatDao(SupplementPlatDao supplementPlatDao) {
         this.supplementPlatDao = supplementPlatDao;
     }
+    @Autowired
+    private SupplementPlatDao supplementPlatDao;
 
+    @Override
+    public List<SupplementPlat> findBySupplement(String libelle) {
+        return supplementPlatDao.findBySupplement(libelle);
+    }
 
-    
+    @Override
+    public int saveSupplementPlat(SupplementPlat supplementPlat) {
+        //List<SupplementPlat> supplementPlats = supplementPlat.get
+    }
+
 }
