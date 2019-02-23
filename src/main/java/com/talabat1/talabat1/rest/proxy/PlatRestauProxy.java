@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.talabat1.talabat1.client.proxy;
+package com.talabat1.talabat1.rest.proxy;
 
 /**
  *
- * @author Keita Moussa
+ * @author wadie
  */
-public class NewClass {
+
+public interface PlatRestauProxy {
     
 }
