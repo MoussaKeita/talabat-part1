@@ -33,7 +33,8 @@ public class PlatCommande implements Serializable {
     private Commande commande;
 
     @OneToMany(mappedBy = "platCommande")
-    private List<SupplementPlat> typeSupplements;
+    private List<Supplement> supplements;
+
     
     // les getters et setters //
     public Long getId() {
@@ -76,12 +77,12 @@ public class PlatCommande implements Serializable {
         this.commande = commande;
     }
 
-    public List<SupplementPlat> getTypeSupplements() {
-        return typeSupplements;
+    public List<Supplement> getSupplements() {
+        return supplements;
     }
 
-    public void setTypeSupplements(List<SupplementPlat> typeSupplements) {
-        this.typeSupplements = typeSupplements;
+    public void setSupplements(List<Supplement> supplements) {
+        this.supplements = supplements;
     }
 
     @Override

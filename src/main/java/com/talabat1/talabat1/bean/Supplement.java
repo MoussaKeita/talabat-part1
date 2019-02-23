@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -27,7 +28,10 @@ public class Supplement implements Serializable {
     private String libelle;
     private Double total_Supp;
     private String type_Supp;
-        @OneToMany(mappedBy = "supplement")
+    @ManyToOne
+    private PlatCommande platCommande;
+    
+     @OneToMany(mappedBy = "supplement")
     private List<SupplementPlat> supplementPlats;
 
     
@@ -72,6 +76,14 @@ public class Supplement implements Serializable {
 
     public void setSupplementPlats(List<SupplementPlat> supplementPlats) {
         this.supplementPlats = supplementPlats;
+    }
+
+    public PlatCommande getPlatCommande() {
+        return platCommande;
+    }
+
+    public void setPlatCommande(PlatCommande platCommande) {
+        this.platCommande = platCommande;
     }
 
 

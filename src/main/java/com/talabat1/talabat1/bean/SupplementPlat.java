@@ -28,9 +28,6 @@ public class SupplementPlat implements Serializable {
     //private Double total_Supp;
     @ManyToOne
     private Supplement supplement;
-    @ManyToOne
-    private PlatCommande platCommande;
-
     // les getters et setters //
     public Long getId() {
         return id;
@@ -54,14 +51,6 @@ public class SupplementPlat implements Serializable {
 
     public void setSupplement(Supplement supplement) {
         this.supplement = supplement;
-    }
-
-    public PlatCommande getPlatCommande() {
-        return platCommande;
-    }
-
-    public void setPlatCommande(PlatCommande platCommande) {
-        this.platCommande = platCommande;
     }
 
     public double getPrix() {
