@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class CommandeRest {
     }
 
     @GetMapping("/reference/{reference}")
-    public Commande findCommandeByReference(String reference) {
+    public Commande findCommandeByReference(@PathVariable String reference) {
         return commandeService.findCommandeByReference(reference);
     }
 
@@ -44,12 +45,12 @@ public class CommandeRest {
     }
 
     @PutMapping("/reference/{reference}/montant/{montant}")
-    public int payer(String reference, Double montant) {
+    public int payer(@PathVariable String reference,@PathVariable Double montant) {
         return commandeService.payer(reference, montant);
     }
 
     @DeleteMapping("/reference{reference}")
-    public int supprimer(String reference) {
+    public int supprimer(@PathVariable String reference) {
         return commandeService.supprimer(reference);
     }
 

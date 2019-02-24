@@ -17,6 +17,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PaiementDao extends JpaRepository<Paiement, Long> {
 
-    public Paiement findByCommande(Commande commande);
+    public Paiement findByReference(String reference);
 
 }

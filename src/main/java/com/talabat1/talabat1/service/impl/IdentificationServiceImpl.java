@@ -23,22 +23,6 @@ public class IdentificationServiceImpl implements IdentificationService {
     @Autowired
     Client client;
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public ClientDao getClientDao() {
-        return clientDao;
-    }
-
-    public void setClientDao(ClientDao clientDao) {
-        this.clientDao = clientDao;
-    }
-
     @Override
     public int verificationDeCNX(String log, String mdp, String mdpConf) {
         Client client = clientDao.findByLog(log);
@@ -67,5 +51,19 @@ public class IdentificationServiceImpl implements IdentificationService {
             return clientDao.save(c);
         }
     }
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public ClientDao getClientDao() {
+        return clientDao;
+    }
+
+    public void setClientDao(ClientDao clientDao) {
+        this.clientDao = clientDao;
+    }
 }

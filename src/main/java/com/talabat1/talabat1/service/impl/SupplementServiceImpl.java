@@ -54,7 +54,14 @@ public class SupplementServiceImpl implements SupplementService{
 
     @Override
     public int supprimer(String libelle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Supplement su = findSupplementByLibelle(libelle);
+       if(su==null){
+           return -1;
+       }
+       else{
+           supplementDao.delete(su);
+       }
+       return 1;
     }
 
     public SupplementDao getSupplementDao() {

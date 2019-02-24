@@ -5,10 +5,14 @@
  */
 package com.talabat1.talabat1.service;
 
+import com.talabat1.talabat1.bean.Paiement;
+import com.talabat1.talabat1.bean.TypePaiement;
+import java.util.List;
+
 /**
  *
  * @author wadie
  */
 public interface TypePaiementService {
-    
+    public List<TypePaiement> findByLibelle(String libelle);
 }

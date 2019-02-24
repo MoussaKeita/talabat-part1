@@ -6,6 +6,7 @@
 package com.talabat1.talabat1.bean;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -87,5 +88,4 @@ public class SupplementPlat implements Serializable {
     public String toString() {
         return "com.talabat1.talabat1.bean.TypeSupplement[ id=" + id + " ]";
     }
-
 }

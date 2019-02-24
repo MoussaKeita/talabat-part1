@@ -28,6 +28,7 @@ public class Paiement implements Serializable {
 
     // les attributs 
     private Long id;
+    private String reference;
     private Double montant;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date date_de_paiment;
@@ -51,6 +52,14 @@ public class Paiement implements Serializable {
 
     public void setDate_de_paiment(Date date_de_paiment) {
         this.date_de_paiment = date_de_paiment;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public Long getId() {

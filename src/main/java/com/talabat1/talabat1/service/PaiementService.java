@@ -13,6 +13,7 @@ import com.talabat1.talabat1.bean.Paiement;
  */
 public interface PaiementService {
 
-    public Paiement creer(Paiement paiement);
+   public Paiement findByReference(String reference);
+   public int supprimer(String reference);
 
 }

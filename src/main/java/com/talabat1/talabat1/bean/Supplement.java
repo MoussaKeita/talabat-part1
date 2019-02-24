@@ -31,12 +31,10 @@ public class Supplement implements Serializable {
     @ManyToOne
     private PlatCommande platCommande;
     
-     @OneToMany(mappedBy = "supplement")
+    @OneToMany(mappedBy = "supplement")
     private List<SupplementPlat> supplementPlats;
 
     
-
-    // les getters et setters //
     public Long getId() {
         return id;
     }
@@ -61,21 +59,12 @@ public class Supplement implements Serializable {
         this.total_Supp = total_Supp;
     }
 
-    
     public String getType_Supp() {
         return type_Supp;
     }
 
     public void setType_Supp(String type_Supp) {
         this.type_Supp = type_Supp;
-    }
-
-    public List<SupplementPlat> getSupplementPlats() {
-        return supplementPlats;
-    }
-
-    public void setSupplementPlats(List<SupplementPlat> supplementPlats) {
-        this.supplementPlats = supplementPlats;
     }
 
     public PlatCommande getPlatCommande() {
@@ -85,6 +74,15 @@ public class Supplement implements Serializable {
     public void setPlatCommande(PlatCommande platCommande) {
         this.platCommande = platCommande;
     }
+
+    public List<SupplementPlat> getSupplementPlats() {
+        return supplementPlats;
+    }
+
+    public void setSupplementPlats(List<SupplementPlat> supplementPlats) {
+        this.supplementPlats = supplementPlats;
+    }
+    
 
 
     @Override

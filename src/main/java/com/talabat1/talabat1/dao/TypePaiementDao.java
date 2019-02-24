@@ -5,7 +5,9 @@
  */
 package com.talabat1.talabat1.dao;
 
+import com.talabat1.talabat1.bean.Paiement;
 import com.talabat1.talabat1.bean.TypePaiement;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TypePaiementDao extends JpaRepository<TypePaiement, Long> {
-
+public List<TypePaiement> findByLibelle(String libelle);
 }

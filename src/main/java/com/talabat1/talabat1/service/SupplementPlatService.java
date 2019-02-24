@@ -5,6 +5,7 @@
  */
 package com.talabat1.talabat1.service;
 
+import com.talabat1.talabat1.bean.Supplement;
 import com.talabat1.talabat1.bean.SupplementPlat;
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
  */
 public interface SupplementPlatService {
     public List<SupplementPlat> findBySupplement(String libelle);
-   public int saveSupplementPlat (SupplementPlat supplementPlat);
+   public int saveSupplementPlat (Supplement supplement);
 }
