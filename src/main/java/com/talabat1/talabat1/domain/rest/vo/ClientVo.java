@@ -14,14 +14,15 @@ import java.util.List;
 public class ClientVo {
 
     private Long id;
-    private String Log;
     private String nom;
     private String prenom;
     private String adresse;
     private String contact;
+    private String login;
     private String password;
+    private String password_Confirmmation;
     private List<CommandeVo> commandesVo;
-
+    /*********************************************/
     // les getters et setters //
     public Long getId() {
         return id;
@@ -30,15 +31,6 @@ public class ClientVo {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public String getLog() {
-        return Log;
-    }
-
-    public void setLog(String Log) {
-        this.Log = Log;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -85,6 +77,22 @@ public class ClientVo {
 
     public void setCommandesVo(List<CommandeVo> commandesVo) {
         this.commandesVo = commandesVo;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword_Confirmmation() {
+        return password_Confirmmation;
+    }
+
+    public void setPassword_Confirmmation(String password_Confirmmation) {
+        this.password_Confirmmation = password_Confirmmation;
     }
 
 }

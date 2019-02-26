@@ -21,8 +21,10 @@ public class CommandeVo {
     private Date DateCommande;
     private ClientVo clientVo;
     private List<PlatCommandeVo> platCommandesVo;
+    private PaiementVo paiementVo;
     
     // les getters et setters //
+    /***************************/
 
     public Long getId() {
         return id;
@@ -78,6 +80,14 @@ public class CommandeVo {
 
     public void setPlatCommandesVo(List<PlatCommandeVo> platCommandesVo) {
         this.platCommandesVo = platCommandesVo;
+    }
+
+    public PaiementVo getPaiementVo() {
+        return paiementVo;
+    }
+
+    public void setPaiementVo(PaiementVo paiementVo) {
+        this.paiementVo = paiementVo;
     }
     
 }

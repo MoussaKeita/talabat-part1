@@ -101,11 +101,11 @@ public class Commande implements Serializable {
     public void setDateCommande(Date dateCommande) {
         this.dateCommande = dateCommande;
     }
-@JsonIgnore
+   // @JsonIgnore
     public List<PlatCommande> getPlatCommandes() {
         return platCommandes;
     }
-@JsonSetter
+//@JsonSetter
     public void setPlatCommandes(List<PlatCommande> platCommandes) {
         this.platCommandes = platCommandes;
     }
@@ -129,7 +129,7 @@ public class Commande implements Serializable {
         }
         return true;
     }
-
+    
     @Override
     public String toString() {
         return "com.talabat1.talabat1.bean.Commande[ id=" + id + " ]";

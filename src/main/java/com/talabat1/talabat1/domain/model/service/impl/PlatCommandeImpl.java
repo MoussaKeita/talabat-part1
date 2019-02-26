@@ -27,7 +27,7 @@ public class PlatCommandeImpl implements PlatCommandeService{
     }
 
     @Override
-    public int savePlat(Commande commande) {
+    public Commande savePlat(Commande commande) {
        List<PlatCommande> platCommandes = commande.getPlatCommandes();
        
        if(platCommandes !=null){
@@ -36,7 +36,7 @@ public class PlatCommandeImpl implements PlatCommandeService{
            platCommandeDao.save(platCommande);
                     }
        }
-       return 1;
+       return commande;
     }
 /**********GETTER AND SETTER******************/
         public PlatCommandeDao getPlatCommandeDao() {
