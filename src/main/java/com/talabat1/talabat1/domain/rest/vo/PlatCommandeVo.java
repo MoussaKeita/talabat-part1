@@ -14,23 +14,17 @@ import java.util.List;
  */
 public class PlatCommandeVo {
 
-    private List<SupplementPlat> typeSupplements;
+    
     private static final long serialVersionUID = 1L;
     private Long id;
     private String refPlat;
     private String prix;
     private String quantite;
     private CommandeVo commandeVo;
+    private List<SupplementVo> SupplementVo;
+    /****************************/
     
     // les getters et setters //
-
-    public List<SupplementPlat> getTypeSupplements() {
-        return typeSupplements;
-    }
-
-    public void setTypeSupplements(List<SupplementPlat> typeSupplements) {
-        this.typeSupplements = typeSupplements;
-    }
 
     public Long getId() {
         return id;
@@ -70,6 +64,14 @@ public class PlatCommandeVo {
 
     public void setCommandeVo(CommandeVo commandeVo) {
         this.commandeVo = commandeVo;
+    }
+
+    public List<SupplementVo> getSupplementVo() {
+        return SupplementVo;
+    }
+
+    public void setSupplementVo(List<SupplementVo> SupplementVo) {
+        this.SupplementVo = SupplementVo;
     }
     
     

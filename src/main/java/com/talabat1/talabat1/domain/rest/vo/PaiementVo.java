@@ -15,9 +15,9 @@ import java.util.Date;
 public class PaiementVo {
     private Long id;
     private String reference;
-    private Double montant;
+    private String montant;
     private Date date_de_paiment;
-    private TypePaiement typePaiement;
+    private TypePaiementVo typePaiementVo;
     private CommandeVo commandeVo;
 
     public Long getId() {
@@ -36,11 +36,11 @@ public class PaiementVo {
         this.reference = reference;
     }
 
-    public Double getMontant() {
+    public String getMontant() {
         return montant;
     }
 
-    public void setMontant(Double montant) {
+    public void setMontant(String montant) {
         this.montant = montant;
     }
 
@@ -52,12 +52,12 @@ public class PaiementVo {
         this.date_de_paiment = date_de_paiment;
     }
 
-    public TypePaiement getTypePaiement() {
-        return typePaiement;
+    public TypePaiementVo getTypePaiementVo() {
+        return typePaiementVo;
     }
 
-    public void setTypePaiement(TypePaiement typePaiement) {
-        this.typePaiement = typePaiement;
+    public void setTypePaiementVo(TypePaiementVo typePaiementVo) {
+        this.typePaiementVo = typePaiementVo;
     }
 
     public CommandeVo getCommandeVo() {
@@ -67,6 +67,7 @@ public class PaiementVo {
     public void setCommandeVo(CommandeVo commandeVo) {
         this.commandeVo = commandeVo;
     }
+
 
     
 }

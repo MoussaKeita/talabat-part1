@@ -27,28 +27,27 @@ public class PlatCommandeConverter extends AbstractConverter<PlatCommande, PlatC
            item.setPrix(NumberUtil.toDouble(vo.getPrix()));
            item.setQuantite(NumberUtil.toDouble(vo.getQuantite()));
            item.setCommande(new CommandeConverter().toItem(vo.getCommandeVo()));
-          // item.setSupplements(new SupplementConverter().toItem(vo.get));
+           item.setSupplements(new SupplementConverter().toItem(vo.getSupplementVo()));
           return item;
         }    
     }
 
     @Override
-    public PlatCommandeVo toVO(PlatCommande t) {
-        if(t==null){
+    public PlatCommandeVo toVO(PlatCommande item) {
+        if(item==null){
             return null;
         }
         else{
             PlatCommandeVo vo =new PlatCommandeVo();
-            vo.setId(t.getId());
-            vo.setRefPlat(t.getRefPlat());
-            vo.setPrix(NumberUtil.toString(t.getPrix()));
-            vo.setQuantite(NumberUtil.toString(t.getQuantite()));
-           // vo.setCommandeVo(t.);
-           // vo.setTypeSupplements(typeSupplements);
+            vo.setId(item.getId());
+            vo.setRefPlat(item.getRefPlat());
+            vo.setPrix(NumberUtil.toString(item.getPrix()));
+            vo.setQuantite(NumberUtil.toString(item.getQuantite()));
+            vo.setCommandeVo(new CommandeConverter().toVO(item.getCommande()));
+           vo.setSupplementVo(new SupplementConverter().toVo(item.getSupplements()));
            return vo;
         }
     }
-
 
     
 }
