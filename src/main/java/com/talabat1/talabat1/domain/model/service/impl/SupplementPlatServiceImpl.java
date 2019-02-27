@@ -11,7 +11,6 @@ import com.talabat1.talabat1.domain.model.dao.SupplementPlatDao;
 import com.talabat1.talabat1.domain.model.service.SupplementPlatService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 /**
