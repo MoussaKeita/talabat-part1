@@ -35,7 +35,7 @@ public class IdentificationServiceImpl implements IdentificationService {
 
     @Override
     public Client connection(String log, String mdp) {
-
+//Client client =
         return null;
     }
 
