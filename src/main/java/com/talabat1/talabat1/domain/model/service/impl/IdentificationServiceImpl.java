@@ -26,7 +26,7 @@ public class IdentificationServiceImpl implements IdentificationService {
         Client client = clientDao.findByLogin(log);
         if (!mdp.equals(mdpConf)) {
             return 0;// mdp et mdp de confirmation ne sont pas identique //
-        } else if (client.getLogin().equals(log)) {
+        } else if ((client.getLogin()).equals(log)) {
             return -1;// le login existe deja dans la base de donnée
         } else {
             return 1;// si tout marche tres bien// 
@@ -45,7 +45,6 @@ public class IdentificationServiceImpl implements IdentificationService {
         if (res == 0 || res == -1) {
             return null;
         } else {
-
             return clientDao.save(c);
         }
     }
