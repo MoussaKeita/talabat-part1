@@ -42,8 +42,9 @@ public class ClientRest {
     }
 
     @GetMapping("/log/{log}/mdp/{mdp}/")
-    public Client connection(@PathVariable String log, @PathVariable String mdp) {
-        return identificationService.connection(log, mdp);
+    public ClientVo connection(@PathVariable String log, @PathVariable String mdp) {
+
+        return new ClientConverter().toVO(identificationService.connection(log, mdp));
     }
 
 }
