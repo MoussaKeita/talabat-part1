@@ -26,7 +26,7 @@ public class SupplementPlatServiceImpl implements SupplementPlatService {
 
     @Override
     public List<SupplementPlat> findBySupplement(String libelle) {
-        return supplementPlatDao.findBySupplement(libelle);
+        return supplementPlatDao.findByLibelle(libelle);
     }
 
      @Override

@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SupplementPlatDao extends JpaRepository<Supplement,Long>{
-    public List<SupplementPlat> findBySupplement(String libelle);
+    public List<SupplementPlat> findByLibelle(String libelle);
 }
