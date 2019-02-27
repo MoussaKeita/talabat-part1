@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author wadie
  */
 @RestController
-@RequestMapping("talabat1/clients")
+@RequestMapping("/talabat1/clients")
 public class ClientRest {
 
     @Autowired
     IdentificationService identificationService;
 
-    @PostMapping("/newClient")
+    @PostMapping("/")
     public Client creer(@RequestBody Client c) {
         return identificationService.creer(c);
     }
