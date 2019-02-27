@@ -7,6 +7,8 @@ package com.talabat1.talabat1.domain.rest;
 
 import com.talabat1.talabat1.domain.bean.Client;
 import com.talabat1.talabat1.domain.model.service.IdentificationService;
+import com.talabat1.talabat1.domain.rest.converter.ClientConverter;
+import com.talabat1.talabat1.domain.rest.vo.ClientVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,8 +29,11 @@ public class ClientRest {
     IdentificationService identificationService;
 
     @PostMapping("/")
-    public Client creer(@RequestBody Client c) {
-        return identificationService.creer(c);
+    public ClientVo creer(@RequestBody ClientVo clientVo) {
+        ClientConverter clientConverter = new ClientConverter();
+        Client clientItem = clientConverter.toItem(clientVo);
+        Client client = identificationService.creer(clientItem);
+        return clientConverter.toVO(client);
     }
 
     @GetMapping("/log/{log}/mdp/{mdp}/mdpConf/{mdpConf}")
