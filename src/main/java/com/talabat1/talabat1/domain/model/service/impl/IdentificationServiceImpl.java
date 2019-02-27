@@ -20,12 +20,10 @@ public class IdentificationServiceImpl implements IdentificationService {
 
     @Autowired
     private ClientDao clientDao;
-    @Autowired
-    Client client;
 
     @Override
     public int verificationDeCNX(String log, String mdp, String mdpConf) {
-        Client client = clientDao.findByLog(log);
+        Client client = clientDao.findByLogin(log);
         if (!mdp.equals(mdpConf)) {
             return 0;// mdp et mdp de confirmation ne sont pas identique //
         } else if (client.getLogin().equals(log)) {
@@ -38,7 +36,7 @@ public class IdentificationServiceImpl implements IdentificationService {
     @Override
     public Client connection(String log, String mdp) {
 
-        return client;
+        return null;
     }
 
     @Override
@@ -50,13 +48,6 @@ public class IdentificationServiceImpl implements IdentificationService {
 
             return clientDao.save(c);
         }
-    }
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public ClientDao getClientDao() {
