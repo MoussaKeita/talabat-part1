@@ -37,10 +37,10 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
     @Override
-    public int creer(Commande commande) {
+    public Commande creer(Commande commande) {
         Commande c = findCommandeByReference(commande.getReference());
         if (c != null) {
-            return -1;
+            return null;
         } else {
             double total = 0.0;
             List<PlatCommande> platCommandes = commande.getPlatCommandes();
@@ -57,7 +57,7 @@ public class CommandeServiceImpl implements CommandeService {
             commandeDao.save(commande);
         }
 
-        return 1;
+        return commande;
     }
 
     @Override

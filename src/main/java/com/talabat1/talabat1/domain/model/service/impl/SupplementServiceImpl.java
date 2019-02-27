@@ -25,16 +25,16 @@ public class SupplementServiceImpl implements SupplementService{
     }
 
     @Override
-    public int creer(Supplement supplement) {
+    public Supplement creer(Supplement supplement) {
         Supplement su = findSupplementByLibelle(supplement.getLibelle());
         if(su!=null){
-            return -1;
+            return null;
         }
         else{
          supplement.setTotal_Supp(0D);
             supplementDao.save(supplement);
         }
-        return 1;
+        return supplement;
     }
 
     @Override

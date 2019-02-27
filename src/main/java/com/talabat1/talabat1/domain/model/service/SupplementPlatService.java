@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface SupplementPlatService {
     public List<SupplementPlat> findBySupplement(String libelle);
-   public int saveSupplementPlat (Supplement supplement);
+   public Supplement saveSupplementPlat (Supplement supplement);
 }

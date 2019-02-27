@@ -29,7 +29,7 @@ public class SupplementPlatServiceImpl implements SupplementPlatService {
     }
 
      @Override
-    public int saveSupplementPlat(Supplement supplement) {
+    public Supplement saveSupplementPlat(Supplement supplement) {
        List<SupplementPlat> supplementPlats = supplement.getSupplementPlats();
        if(supplementPlats !=null){
                   for(SupplementPlat supplementPlat : supplementPlats){
@@ -37,7 +37,7 @@ public class SupplementPlatServiceImpl implements SupplementPlatService {
                  supplementPlatDao.save(supplement);
                      }
              }
-       return 1;
+       return supplement;
     }
     public SupplementPlatDao getSupplementPlatDao() {
         return supplementPlatDao;

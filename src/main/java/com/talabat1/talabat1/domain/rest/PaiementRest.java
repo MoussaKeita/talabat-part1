@@ -7,6 +7,8 @@ package com.talabat1.talabat1.domain.rest;
 
 import com.talabat1.talabat1.domain.bean.Paiement;
 import com.talabat1.talabat1.domain.model.service.PaiementService;
+import com.talabat1.talabat1.domain.rest.converter.PaiementConverter;
+import com.talabat1.talabat1.domain.rest.vo.PaiementVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaiementRest {
     @Autowired
     private PaiementService paiementService;
+    
 @GetMapping("/reference/{reference}")
-    public Paiement findByReference(@PathVariable String reference) {
-        return paiementService.findByReference(reference);
+    public PaiementVo findByReference(@PathVariable String reference) {
+        return new PaiementConverter().toVO(paiementService.findByReference(reference));
     }
 @DeleteMapping("/reference/{reference}")
     public int supprimer(@PathVariable String reference) {

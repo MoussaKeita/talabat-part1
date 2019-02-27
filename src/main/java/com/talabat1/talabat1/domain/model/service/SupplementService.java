@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface SupplementService {
     public Supplement findSupplementByLibelle(String libelle);
-    public int creer (Supplement supplement);
+    public Supplement creer (Supplement supplement);
     public int payer (String libelle, Double montant);
    // public int modifier(Commande commande);
     public int supprimer(String libelle);

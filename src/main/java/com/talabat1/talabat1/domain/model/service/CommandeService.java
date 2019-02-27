@@ -15,7 +15,7 @@ import java.util.List;
 public interface CommandeService {
     public List<Commande> findAllCommande();
     public Commande findCommandeByReference(String reference);
-    public int creer (Commande commande);
+    public Commande creer (Commande commande);
     public int payer (String reference , Double montant);
    // public int modifier(Commande commande);
     public int supprimer(String reference);

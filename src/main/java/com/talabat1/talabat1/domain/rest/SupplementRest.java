@@ -8,6 +8,8 @@ package com.talabat1.talabat1.domain.rest;
 
 import com.talabat1.talabat1.domain.bean.Supplement;
 import com.talabat1.talabat1.domain.model.service.SupplementService;
+import com.talabat1.talabat1.domain.rest.converter.SupplementConverter;
+import com.talabat1.talabat1.domain.rest.vo.SupplementVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,12 +30,14 @@ public class SupplementRest {
     @Autowired
     private SupplementService supplementService;
 @GetMapping("/libelle/{libelle}")
-    public Supplement findSupplementByLibelle(@PathVariable String libelle) {
-        return supplementService.findSupplementByLibelle(libelle);
+    public SupplementVo findSupplementByLibelle(@PathVariable String libelle) {
+        return new SupplementConverter().toVO(supplementService.findSupplementByLibelle(libelle));
     }
 @PostMapping("/")
-    public int creer(@RequestBody Supplement supplement) {
-        return supplementService.creer(supplement);
+    public SupplementVo creer(@RequestBody SupplementVo supplementVo) {
+        final SupplementConverter supplementConverter = new SupplementConverter();
+        Supplement supplement = supplementConverter.toItem(supplementVo);
+        return supplementConverter.toVO(supplementService.creer(supplement));
     }
 @PutMapping("/libelle/{libelle}/double/{double}")
     public int payer(@PathVariable String libelle,@PathVariable Double montant) {

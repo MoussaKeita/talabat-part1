@@ -35,7 +35,6 @@ public class PlatCommandeRest {
     @GetMapping("/reference/{reference}")
     public List<PlatCommandeVo> findPlatCommmandeByReference(@PathVariable String reference) {
         return new PlatCommandeConverter().toVo(platCommandeService.findPlatCommmandeByReference(reference));
-        // return   platCommandeService.findPlatCommmandeByReference(reference);
     }
 
     @PostMapping("/")

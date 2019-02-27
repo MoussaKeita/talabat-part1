@@ -7,6 +7,8 @@ package com.talabat1.talabat1.domain.rest;
 
 import com.talabat1.talabat1.domain.bean.TypePaiement;
 import com.talabat1.talabat1.domain.model.service.TypePaiementService;
+import com.talabat1.talabat1.domain.rest.converter.TypePaiementConverter;
+import com.talabat1.talabat1.domain.rest.vo.TypePaiementVo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +26,8 @@ public class TypePaiementRest {
     @Autowired
     private TypePaiementService typePaiementService;
 @GetMapping("/libelle/{libelle}")
-    public List<TypePaiement> findByLibelle(@PathVariable String libelle) {
-        return typePaiementService.findByLibelle(libelle);
+    public List<TypePaiementVo> findByLibelle(@PathVariable String libelle) {
+        return new TypePaiementConverter().toVo(typePaiementService.findByLibelle(libelle));
     }
 
     
