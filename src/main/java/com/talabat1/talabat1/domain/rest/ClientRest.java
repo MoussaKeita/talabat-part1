@@ -41,7 +41,7 @@ public class ClientRest {
         return identificationService.verificationDeCNX(log, mdp, mdpConf);
     }
 
-    @GetMapping("/log/{log}/mdp/{mdp}/")
+    @GetMapping("/log/{log}/mdp/{mdp}")
     public ClientVo connection(@PathVariable String log, @PathVariable String mdp) {
 
         return new ClientConverter().toVO(identificationService.connection(log, mdp));
