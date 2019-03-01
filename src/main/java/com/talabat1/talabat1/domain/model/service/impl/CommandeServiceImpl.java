@@ -10,6 +10,7 @@ import com.talabat1.talabat1.domain.bean.PlatCommande;
 import com.talabat1.talabat1.domain.model.dao.CommandeDao;
 import com.talabat1.talabat1.domain.model.service.CommandeService;
 import com.talabat1.talabat1.domain.model.service.PlatCommandeService;
+import com.talabat1.talabat1.domain.rest.proxy.PlatRestauProxy;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class CommandeServiceImpl implements CommandeService {
     private CommandeDao commandeDao;
     @Autowired
     private PlatCommandeService platCommandeService;
+    @Autowired
+    private PlatRestauProxy platRestauProxy;
 
     @Override
     public List<Commande> findAllCommande() {
@@ -41,23 +44,28 @@ public class CommandeServiceImpl implements CommandeService {
         Commande c = findCommandeByReference(commande.getReference());
         if (c != null) {
             return null;
-        } else {
+        }
+         if(validateProduit(commande.getPlatCommandes())){
+                    
             double total = 0.0;
             List<PlatCommande> platCommandes = commande.getPlatCommandes();
             if (platCommandes != null) {
                 for (PlatCommande platCommande : platCommandes) {
                     total += platCommande.getPrix() * platCommande.getQuantite();
                 }
-            }
+            
             commande.setTotal(total);
-            /**
+            /*
              * ************************************
              */
             commande.setTotalPaiement(0D);
             commandeDao.save(commande);
+              }
+            return commande;
         }
-
-        return commande;
+         else{
+             return null;
+         }
     }
 
     @Override
@@ -73,7 +81,23 @@ public class CommandeServiceImpl implements CommandeService {
         }
         return 1;
     }
+  
+        private boolean validateProduit(List<PlatCommande> platCommandes) {
+       if(platCommandes==null || platCommandes.isEmpty()){// si la liste est egale à null ou vide//
+           return false;
+       }
+       else{
+           int cmp = 0;
+            for (PlatCommande platCommande : platCommandes) {// fore+tabulation// pour aller vite//
+               if(platRestauProxy.findByReference(platCommande.getRefPlat())!=null);
+               cmp++;
+           }
+       }
+        int cmp = 0;
+       return (cmp ==platCommandes.size());
+    }
 
+    
 //    @Override
 //    public int modifier(Commande commande) {
 //     Commande c = findCommandeByReference(commande.getReference());
@@ -107,6 +131,14 @@ public class CommandeServiceImpl implements CommandeService {
 
     public void setPlatCommandeService(PlatCommandeService platCommandeService) {
         this.platCommandeService = platCommandeService;
+    }
+
+    public PlatRestauProxy getPlatRestauProxy() {
+        return platRestauProxy;
+    }
+
+    public void setPlatRestauProxy(PlatRestauProxy platRestauProxy) {
+        this.platRestauProxy = platRestauProxy;
     }
 
 }
