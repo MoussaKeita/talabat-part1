@@ -21,24 +21,25 @@ import org.springframework.stereotype.Service;
 public class PlatCommandeImpl implements PlatCommandeService{
  @Autowired
  private PlatCommandeDao platCommandeDao;
+ 
     @Override
-    public List<PlatCommande> findPlatCommmandeByReference(String reference) {
-     return platCommandeDao.findByCommandeReference(reference);
+    public List<PlatCommande> findByCommmande(String reference) {
+   return platCommandeDao.findByCommandeReference(reference);
     }
-
-    @Override
-    public Commande savePlat(Commande commande) {
-       List<PlatCommande> platCommandes = commande.getPlatCommandes();
-       
-       if(platCommandes !=null){
-       for(PlatCommande platCommande : platCommandes){
-           platCommande.setCommande(commande);//association de la commande avec la liste PlatCommande//
-           platCommandeDao.save(platCommande);
-                    }
-       }
-       return commande;
+        @Override
+    public int savePlatCommande(Commande commande, List<PlatCommande> platCommandes) {// ici on a la liste en pam : donc pas besoin de le télécharger//
+        if(platCommandes == null || platCommandes.isEmpty()){
+            return -1;
+        }
+        else{
+            for(PlatCommande platCommande : platCommandes){
+                platCommande.setCommande(commande);//association de la commande avec plat Commande//
+                platCommandeDao.save(platCommande);
+            }
+        }
+        return 1;
     }
-/**********GETTER AND SETTER******************/
+    /**********GETTER AND SETTER******************/
         public PlatCommandeDao getPlatCommandeDao() {
         return platCommandeDao;
     }
@@ -46,5 +47,5 @@ public class PlatCommandeImpl implements PlatCommandeService{
     public void setPlatCommandeDao(PlatCommandeDao platCommandeDao) {
         this.platCommandeDao = platCommandeDao;
     }
+    }
 
-}

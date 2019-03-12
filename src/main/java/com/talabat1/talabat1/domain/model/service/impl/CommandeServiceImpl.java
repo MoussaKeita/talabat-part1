@@ -35,42 +35,29 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
     @Override
-    public Commande findCommandeByReference(String reference) {
+    public Commande findByReference(String reference) {
         return commandeDao.findByReference(reference);
     }
-
     @Override
-    public Commande creer(Commande commande) {
-        Commande c = findCommandeByReference(commande.getReference());
-        if (c != null) {
-            return null;
-        }
-         if(validateProduit(commande.getPlatCommandes())){
-                    
-            double total = 0.0;
-            List<PlatCommande> platCommandes = commande.getPlatCommandes();
-            if (platCommandes != null) {
-                for (PlatCommande platCommande : platCommandes) {
-                    total += platCommande.getPrix() * platCommande.getQuantite();
-                }
-            
-            commande.setTotal(total);
-            /*
-             * ************************************
-             */
-            commande.setTotalPaiement(0D);
-            commandeDao.save(commande);
-              }
-            return commande;
-        }
-         else{
-             return null;
-         }
+    public Commande saveCommandeWithPlats(Commande commande) {
+        //calcul du total//
+        calculerTotalCommande(commande , commande.getPlatCommandes());
+         commandeDao.save(commande);//sauvegarde de la commande//
+         platCommandeService.savePlatCommande(commande, commande.getPlatCommandes());//sauvegarde de la commande avec platCommande//
+         return commande;
     }
-
+    private void calculerTotalCommande(Commande commande , List<PlatCommande> platCommandes) {
+        Double total = 0D;
+        if (platCommandes !=null) {
+            for (PlatCommande platCommande : platCommandes) {
+                total+= platCommande.getPrix()*platCommande.getQuantite();
+            }
+            commande.setTotal(total);
+        }
+    }
     @Override
     public int payer(String reference, Double montant) {
-        Commande c = findCommandeByReference(reference);
+        Commande c = findByReference(reference);
         if (c == null) {
             return -1;
         } else if (c.getTotalPaiement() + montant > c.getTotal()) {
@@ -81,40 +68,17 @@ public class CommandeServiceImpl implements CommandeService {
         }
         return 1;
     }
-  
-        private boolean validateProduit(List<PlatCommande> platCommandes) {
-       if(platCommandes==null || platCommandes.isEmpty()){// si la liste est egale à null ou vide//
-           return false;
-       }
-       else{
-           int cmp = 0;
-            for (PlatCommande platCommande : platCommandes) {// fore+tabulation// pour aller vite//
-               if(platRestauProxy.findByReference(platCommande.getRefPlat())!=null);
-               cmp++;
-           }
-       }
-        int cmp = 0;
-       return (cmp ==platCommandes.size());
-    }
 
-    
-//    @Override
-//    public int modifier(Commande commande) {
-//     Commande c = findCommandeByReference(commande.getReference());
-//     if(c== null){
-//         return -1;
-//     }
-//     commandeDao.update(commande);
-//    }
     @Override
     public int supprimer(String reference) {
-        Commande c = findCommandeByReference(reference);
+        Commande c = findByReference(reference);
         if (c == null) {
             return -1;
         } else {
             commandeDao.delete(c);
         }
         return 1;
+
     }
 
     public CommandeDao getCommandeDao() {
@@ -142,3 +106,26 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
 }
+
+//    private boolean validateProduit(List<PlatCommande> platCommandes) {
+//        if (platCommandes == null || platCommandes.isEmpty()) {// si la liste est egale à null ou vide//
+//            return false;
+//        } else {
+//            int cmp = 0;
+//            for (PlatCommande platCommande : platCommandes) {// fore+tabulation// pour aller vite//
+//                if (platRestauProxy.findByReference(platCommande.getRefPlat()) != null);
+//                cmp++;
+//            }
+//        }
+//        int cmp = 0;
+//        return (cmp == platCommandes.size());
+//    }
+//    @Override
+//    public int modifier(Commande commande) {
+//     Commande c = findCommandeByReference(commande.getReference());
+//     if(c== null){
+//         return -1;
+//     }
+//     commandeDao.update(commande);
+//    }
+

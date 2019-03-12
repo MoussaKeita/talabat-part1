@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface PlatCommandeService {
     
-    public List<PlatCommande> findPlatCommmandeByReference(String reference);
-    public Commande savePlat (Commande commande);
+    public List<PlatCommande> findByCommmande(String reference);
+    public int savePlatCommande (Commande commande , List<PlatCommande> platCommandes);
    // public int modifier(Commande commande);
 }
