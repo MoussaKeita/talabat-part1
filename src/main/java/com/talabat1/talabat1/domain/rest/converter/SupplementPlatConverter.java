@@ -24,6 +24,7 @@ public class SupplementPlatConverter extends AbstractConverter<SupplementPlat, S
     else{
         SupplementPlat item = new SupplementPlat();
         item.setId(vo.getId());
+        item.setLibelleSupp(vo.getLibelleSupp());
         item.setPrix(NumberUtil.toDouble(vo.getPrix()));
         item.setQuantite(NumberUtil.toDouble(vo.getQuantite()));
         item.setSupplement(new SupplementConverter().toItem(vo.getSupplementVo()));
@@ -39,6 +40,7 @@ public class SupplementPlatConverter extends AbstractConverter<SupplementPlat, S
        else{
            SupplementPlatVo vo = new SupplementPlatVo();
            vo.setId(item.getId());
+           vo.setLibelleSupp(vo.getLibelleSupp());
            vo.setPrix(NumberUtil.toString(item.getPrix()));
            vo.setQuantite(NumberUtil.toString(item.getQuantite()));
            vo.setSupplementVo(new SupplementConverter().toVO(item.getSupplement()));

@@ -3,21 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.talabat2.talabat2.domain.rest.vo.exhange;
+package com.talabat2.talabat2.domain.rest.vo.exchange;
 
 import java.util.List;
 
 /**
  *
- * @author Keita Moussa
+ * @author ASUS
  */
 public class RestaurantVo {
-     private Long id;
+
+    private Long id;
     private String reference;
     private String nom;
     private String adresse;
-    private String tel;
-    private List<PlatRestauVo> platRestauVo;
+    private String num;
+    private CategorieVo categorieVo;
+    private RueVo rueVo;
+    private List<PlatRestaurantVo> platRestaurantsVo;
+
+    public List<PlatRestaurantVo> getPlatRestaurantsVo() {
+        return platRestaurantsVo;
+    }
+
+    public void setPlatRestaurantsVo(List<PlatRestaurantVo> platRestaurantsVo) {
+        this.platRestaurantsVo = platRestaurantsVo;
+    }
 
     public Long getId() {
         return id;
@@ -51,22 +62,28 @@ public class RestaurantVo {
         this.adresse = adresse;
     }
 
-    public String getTel() {
-        return tel;
+    public String getNum() {
+        return num;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setNum(String num) {
+        this.num = num;
     }
 
-    public List<PlatRestauVo> getPlatRestauVo() {
-        return platRestauVo;
+    public CategorieVo getCategorieVo() {
+        return categorieVo;
     }
 
-    public void setPlatRestauVo(List<PlatRestauVo> platRestauVo) {
-        this.platRestauVo = platRestauVo;
+    public void setCategorieVo(CategorieVo categorieVo) {
+        this.categorieVo = categorieVo;
     }
-    
-    
+
+    public RueVo getRueVo() {
+        return rueVo;
+    }
+
+    public void setRueVo(RueVo rueVo) {
+        this.rueVo = rueVo;
+    }
 
 }

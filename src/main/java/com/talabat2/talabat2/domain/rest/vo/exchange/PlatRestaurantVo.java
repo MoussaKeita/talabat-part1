@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.talabat2.talabat2.domain.rest.vo.exhange;
-
-//import com.talabat2.talabat2.domain.bean.Restaurant;
+package com.talabat2.talabat2.domain.rest.vo.exchange;
 
 /**
  *
- * @author Keita Moussa
+ * @author ASUS
  */
-public class PlatRestauVo {
+public class PlatRestaurantVo {
+
     private Long id;
     private String reference;
-    private String nom;
+    private String date;
+    private PlatVo platVo;
     private RestaurantVo restaurantVo;
-
+    
+    
 
     public Long getId() {
         return id;
@@ -34,12 +35,20 @@ public class PlatRestauVo {
         this.reference = reference;
     }
 
-    public String getNom() {
-        return nom;
+    public String getDate() {
+        return date;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public PlatVo getPlatVo() {
+        return platVo;
+    }
+
+    public void setPlatVo(PlatVo platVo) {
+        this.platVo = platVo;
     }
 
     public RestaurantVo getRestaurantVo() {
@@ -49,5 +58,6 @@ public class PlatRestauVo {
     public void setRestaurantVo(RestaurantVo restaurantVo) {
         this.restaurantVo = restaurantVo;
     }
-  
+    
+
 }

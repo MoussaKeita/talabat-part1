@@ -14,10 +14,10 @@ import java.util.List;
  * @author Keita Moussa
  */
 public interface SupplementService {
-    public Supplement findSupplementByLibelle(String libelle);
-    public Supplement creer (Supplement supplement);
+    public List<Supplement> findAll();
+    public Supplement findByLibelle(String libelle);
+    public Supplement saveSupplementWithSupPlat(Supplement supplement);
     public int payer (String libelle, Double montant);
    // public int modifier(Commande commande);
-    public int supprimer(String libelle);
-    
+    public int supprimer(String libelle);      
 }

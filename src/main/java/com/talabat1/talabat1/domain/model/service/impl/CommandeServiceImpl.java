@@ -10,10 +10,10 @@ import com.talabat1.talabat1.domain.bean.PlatCommande;
 import com.talabat1.talabat1.domain.model.dao.CommandeDao;
 import com.talabat1.talabat1.domain.model.service.CommandeService;
 import com.talabat1.talabat1.domain.model.service.PlatCommandeService;
-import com.talabat1.talabat1.domain.rest.proxy.PlatRestauProxy;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.talabat1.talabat1.domain.rest.proxy.PlatRestaurantProxy;
 
 /**
  *
@@ -27,7 +27,7 @@ public class CommandeServiceImpl implements CommandeService {
     @Autowired
     private PlatCommandeService platCommandeService;
     @Autowired
-    private PlatRestauProxy platRestauProxy;
+    private PlatRestaurantProxy platRestauProxy;
 
     @Override
     public List<Commande> findAllCommande() {
@@ -97,11 +97,11 @@ public class CommandeServiceImpl implements CommandeService {
         this.platCommandeService = platCommandeService;
     }
 
-    public PlatRestauProxy getPlatRestauProxy() {
+    public PlatRestaurantProxy getPlatRestauProxy() {
         return platRestauProxy;
     }
 
-    public void setPlatRestauProxy(PlatRestauProxy platRestauProxy) {
+    public void setPlatRestauProxy(PlatRestaurantProxy platRestauProxy) {
         this.platRestauProxy = platRestauProxy;
     }
 

@@ -11,6 +11,7 @@ package com.talabat1.talabat1.domain.rest.vo;
  */
 public class SupplementPlatVo {
     private Long id;
+    private String libelleSupp;
     private String quantite;
     private String prix;
     private SupplementVo supplementVo;
@@ -45,6 +46,14 @@ public class SupplementPlatVo {
 
     public void setSupplementVo(SupplementVo supplementVo) {
         this.supplementVo = supplementVo;
+    }
+
+    public String getLibelleSupp() {
+        return libelleSupp;
+    }
+
+    public void setLibelleSupp(String libelleSupp) {
+        this.libelleSupp = libelleSupp;
     }
     
     

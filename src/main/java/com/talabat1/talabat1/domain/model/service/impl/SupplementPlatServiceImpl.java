@@ -27,18 +27,20 @@ public class SupplementPlatServiceImpl implements SupplementPlatService {
     public List<SupplementPlat> findBySupplement(String libelle) {
         return supplementPlatDao.findByLibelle(libelle);
     }
-
-     @Override
-    public Supplement saveSupplementPlat(Supplement supplement) {
-       List<SupplementPlat> supplementPlats = supplement.getSupplementPlats();
-       if(supplementPlats !=null){
-                  for(SupplementPlat supplementPlat : supplementPlats){
-                 supplementPlat.setSupplement(supplement);//association du supplement avec la liste supplementPlat//
-                 supplementPlatDao.save(supplement);
-                     }
-             }
-       return supplement;
+    @Override
+    public int saveSupplementPlat(Supplement supplement, List<SupplementPlat> supplementPlats) {
+        if(supplementPlats ==null || supplementPlats.isEmpty()){
+            return -1;
+        }
+        else{
+                   for(SupplementPlat supplementPlat : supplementPlats){
+              supplementPlat.setSupplement(supplement);//association du supplement avec la liste supplementPlat//
+              supplementPlatDao.save(supplement);
+          }
+        return 1;
     }
+    }
+
     public SupplementPlatDao getSupplementPlatDao() {
         return supplementPlatDao;
     }

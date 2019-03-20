@@ -24,6 +24,7 @@ public class SupplementPlat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String libelleSupp;
     private Double quantite;
     private double prix;
     //private Double total_Supp;
@@ -61,6 +62,16 @@ public class SupplementPlat implements Serializable {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+
+    public String getLibelleSupp() {
+        return libelleSupp;
+    }
+
+    public void setLibelleSupp(String libelleSupp) {
+        this.libelleSupp = libelleSupp;
+    }
+
+
 
 
 

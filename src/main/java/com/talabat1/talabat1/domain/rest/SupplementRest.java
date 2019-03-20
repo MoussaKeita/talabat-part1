@@ -31,13 +31,13 @@ public class SupplementRest {
     private SupplementService supplementService;
 @GetMapping("/libelle/{libelle}")
     public SupplementVo findSupplementByLibelle(@PathVariable String libelle) {
-        return new SupplementConverter().toVO(supplementService.findSupplementByLibelle(libelle));
+        return new SupplementConverter().toVO(supplementService.findByLibelle(libelle));
     }
 @PostMapping("/")
-    public SupplementVo creer(@RequestBody SupplementVo supplementVo) {
+    public SupplementVo saveSupplementWithSupPlat(@RequestBody SupplementVo supplementVo) {
         final SupplementConverter supplementConverter = new SupplementConverter();
         Supplement supplement = supplementConverter.toItem(supplementVo);
-        return supplementConverter.toVO(supplementService.creer(supplement));
+        return supplementConverter.toVO(supplementService.saveSupplementWithSupPlat(supplement));
     }
 @PutMapping("/libelle/{libelle}/double/{double}")
     public int payer(@PathVariable String libelle,@PathVariable Double montant) {
