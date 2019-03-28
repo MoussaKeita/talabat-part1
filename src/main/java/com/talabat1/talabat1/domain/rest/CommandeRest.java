@@ -97,4 +97,20 @@ public class CommandeRest {
         this.commandeConverter = commandeConverter;
     }
 
+    public PlatCommandeService getPlatCommandeService() {
+        return platCommandeService;
+    }
+
+    public void setPlatCommandeService(PlatCommandeService platCommandeService) {
+        this.platCommandeService = platCommandeService;
+    }
+
+    public AbstractConverter<PlatCommande, PlatCommandeVo> getPlatCommandeConverter() {
+        return platCommandeConverter;
+    }
+
+    public void setPlatCommandeConverter(AbstractConverter<PlatCommande, PlatCommandeVo> platCommandeConverter) {
+        this.platCommandeConverter = platCommandeConverter;
+    }
+
 }
