@@ -36,6 +36,7 @@ public class ClientRest {
         return clientConverter.toVO(client);
     }
 
+
     @GetMapping("/log/{log}/mdp/{mdp}/mdpConf/{mdpConf}")
     public int verificationDeCNX(@PathVariable String log, @PathVariable String mdp, @PathVariable String mdpConf) {
         return identificationService.verificationDeCNX(log, mdp, mdpConf);

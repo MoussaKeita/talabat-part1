@@ -13,7 +13,7 @@ import java.util.List;
  * @author Keita Moussa
  */
 public interface CommandeService {
-    public List<Commande> findAllCommande();
+    public List<Commande> findAll();
     public Commande findByReference(String reference);
     /***********************************************/
     public Commande saveCommandeWithPlats(Commande commande);

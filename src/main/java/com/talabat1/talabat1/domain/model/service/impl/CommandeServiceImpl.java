@@ -30,7 +30,7 @@ public class CommandeServiceImpl implements CommandeService {
     private PlatRestaurantProxy platRestauProxy;
 
     @Override
-    public List<Commande> findAllCommande() {
+    public List<Commande> findAll() {
         return commandeDao.findAll();
     }
 

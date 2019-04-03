@@ -36,10 +36,10 @@ public class PlatCommandeRest {
     @Autowired 
     private PlatCommandeService platCommandeService;
     
-    @Autowired
+   /* @Autowired
     @Qualifier("platCommandeConverter")
     private AbstractConverter<PlatCommande ,PlatCommandeVo> platCommandeConverter;
-
+*/
     @GetMapping("/reference/{reference}")
     public List<PlatCommandeVo> findByCommmandeReference(@PathVariable("reference") String reference) {
         return new PlatCommandeConverter().toVo(platCommandeService.findByCommmande(reference));
@@ -63,12 +63,12 @@ public class PlatCommandeRest {
         this.platCommandeService = platCommandeService;
     }
 
-    public AbstractConverter<PlatCommande, PlatCommandeVo> getPlatCommandeConverter() {
+   /* public AbstractConverter<PlatCommande, PlatCommandeVo> getPlatCommandeConverter() {
         return platCommandeConverter;
     }
 
     public void setPlatCommandeConverter(AbstractConverter<PlatCommande, PlatCommandeVo> platCommandeConverter) {
         this.platCommandeConverter = platCommandeConverter;
-    }
+    }*/
 
 }

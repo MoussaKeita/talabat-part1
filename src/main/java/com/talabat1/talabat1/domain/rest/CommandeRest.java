@@ -42,29 +42,30 @@ public class CommandeRest {
     @Autowired
     private CommandeService commandeService;// meme chose que le proxy//
     
-    @Autowired
+  /*  @Autowired
     @Qualifier("commandeConverter")
-    private AbstractConverter<Commande ,CommandeVo> commandeConverter;
-/*****************************************************/
+    private AbstractConverter<Commande ,CommandeVo> commandeConverter;*/
+/****************************************************
         @Autowired
-    @Qualifier("platCommandeConverter")
-    private AbstractConverter<PlatCommande ,PlatCommandeVo> platCommandeConverter;
+    @Qualifier("platCommandeConverter")*
+    private AbstractConverter<PlatCommande ,PlatCommandeVo> platCommandeConverter;*/
 
     @GetMapping("/reference/{reference}/plat-Commandes/")
     public List<PlatCommandeVo> findByCommmandeReference(@PathVariable("reference") String reference) {
         return new PlatCommandeConverter().toVo(platCommandeService.findByCommmande(reference));
     }
     /*****************************************************/
-    @GetMapping("")
-    public List<CommandeVo> findAllCommande() {
-        return new CommandeConverter().toVo(commandeService.findAllCommande());
+    @GetMapping("/")
+    public List<CommandeVo> findAll() {
+        return new CommandeConverter().toVo(commandeService.findAll());
     }
 
     @GetMapping("/reference/{reference}")
     public CommandeVo findCommandeByReference(@PathVariable ("reference")String reference) {
         return new  CommandeConverter().toVO(commandeService.findByReference(reference));
     }
-    @PostMapping("/")
+
+   @PostMapping("/")
     public CommandeVo saveCommandeWithPlats(@RequestBody CommandeVo commandeVo) {
         final CommandeConverter commandeConverter = new CommandeConverter();
         Commande commande = commandeConverter.toItem(commandeVo);
@@ -88,7 +89,7 @@ public class CommandeRest {
     public void setCommandeService(CommandeService commandeService) {
         this.commandeService = commandeService;
     }
-
+/*
     public AbstractConverter<Commande, CommandeVo> getCommandeConverter() {
         return commandeConverter;
     }
@@ -96,7 +97,7 @@ public class CommandeRest {
     public void setCommandeConverter(AbstractConverter<Commande, CommandeVo> commandeConverter) {
         this.commandeConverter = commandeConverter;
     }
-
+*/
     public PlatCommandeService getPlatCommandeService() {
         return platCommandeService;
     }
@@ -104,7 +105,7 @@ public class CommandeRest {
     public void setPlatCommandeService(PlatCommandeService platCommandeService) {
         this.platCommandeService = platCommandeService;
     }
-
+/*
     public AbstractConverter<PlatCommande, PlatCommandeVo> getPlatCommandeConverter() {
         return platCommandeConverter;
     }
@@ -112,5 +113,5 @@ public class CommandeRest {
     public void setPlatCommandeConverter(AbstractConverter<PlatCommande, PlatCommandeVo> platCommandeConverter) {
         this.platCommandeConverter = platCommandeConverter;
     }
-
+*/
 }

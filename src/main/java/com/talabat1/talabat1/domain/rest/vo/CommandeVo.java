@@ -20,7 +20,7 @@ public class CommandeVo {
     private String total;
     private Date DateCommande;
     private ClientVo clientVo;
-    private List<PlatCommandeVo> platCommandesVo;
+    private List<PlatCommandeVo> platCommandeVo;
     private PaiementVo paiementVo;
     
     // les getters et setters //
@@ -75,11 +75,11 @@ public class CommandeVo {
     }
 
     public List<PlatCommandeVo> getPlatCommandesVo() {
-        return platCommandesVo;
+        return platCommandeVo;
     }
 
     public void setPlatCommandesVo(List<PlatCommandeVo> platCommandesVo) {
-        this.platCommandesVo = platCommandesVo;
+        this.platCommandeVo = platCommandesVo;
     }
 
     public PaiementVo getPaiementVo() {

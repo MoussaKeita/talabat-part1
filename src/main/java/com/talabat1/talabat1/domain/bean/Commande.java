@@ -101,7 +101,7 @@ public class Commande implements Serializable {
     public void setDateCommande(Date dateCommande) {
         this.dateCommande = dateCommande;
     }
-   // @JsonIgnore
+   //@JsonIgnore
     public List<PlatCommande> getPlatCommandes() {
         return platCommandes;
     }
