@@ -8,6 +8,7 @@ package com.talabat1.talabat1.domain.model.service.impl;
 import com.talabat1.talabat1.domain.bean.Commande;
 import com.talabat1.talabat1.domain.bean.PlatCommande;
 import com.talabat1.talabat1.domain.model.dao.CommandeDao;
+import com.talabat1.talabat1.domain.model.dao.PlatCommandeDao;
 import com.talabat1.talabat1.domain.model.service.CommandeService;
 import com.talabat1.talabat1.domain.model.service.PlatCommandeService;
 import java.util.List;
@@ -24,6 +25,8 @@ public class CommandeServiceImpl implements CommandeService {
 
     @Autowired
     private CommandeDao commandeDao;
+    @Autowired
+    private PlatCommandeDao platCommandeDao;
     @Autowired
     private PlatCommandeService platCommandeService;
     @Autowired
@@ -68,18 +71,34 @@ public class CommandeServiceImpl implements CommandeService {
         }
         return 1;
     }
-
-    @Override
-    public int supprimer(String reference) {
-        Commande c = findByReference(reference);
+        @Override
+    public int deleteCommandeWithPlats(String reference) {
+        Commande c = commandeDao.findByReference(reference);
         if (c == null) {
             return -1;
         } else {
+            for(PlatCommande platCommande:c.getPlatCommandes()){
+                platCommandeDao.delete(platCommande);
+            }
             commandeDao.delete(c);
         }
+            
         return 1;
 
     }
+
+
+//    @Override
+//    public int deleteCommandeWithPlats(String reference) {
+//        Commande c = findByReference(reference);
+//        if (c == null) {
+//            return -1;
+//        } else {
+//            commandeDao.delete(c);
+//        }
+//        return 1;
+//
+//    }
 
     public CommandeDao getCommandeDao() {
         return commandeDao;

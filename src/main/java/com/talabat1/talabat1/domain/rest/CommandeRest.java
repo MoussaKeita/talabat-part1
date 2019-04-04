@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/talabat1/commandes")
-@CrossOrigin(origins ={"http://localhost:4200/"})// l'acces à Angular pour qu'il puisse invoquer le MicroService//
+//@CrossOrigin(origins ={"http://localhost:4200/"})// l'acces à Angular pour qu'il puisse invoquer le MicroService//
 public class CommandeRest {
     
      @Autowired 
@@ -68,18 +68,18 @@ public class CommandeRest {
    @PostMapping("/")
     public CommandeVo saveCommandeWithPlats(@RequestBody CommandeVo commandeVo) {
         final CommandeConverter commandeConverter = new CommandeConverter();
-        Commande commande = commandeConverter.toItem(commandeVo);
-        return commandeConverter.toVO(commandeService.saveCommandeWithPlats(commande));
-    }
-
+       Commande commande = commandeConverter.toItem(commandeVo);
+      return commandeConverter.toVO(commandeService.saveCommandeWithPlats(commande));
+   }
+ 
     @PutMapping("/reference/{reference}/montant/{montant}")
     public int payer(@PathVariable String reference,@PathVariable Double montant) {
         return (commandeService.payer(reference, montant));
     }
 
     @DeleteMapping("/reference{reference}")
-    public int supprimer(@PathVariable String reference) {
-        return commandeService.supprimer(reference);
+    public int deleteCommandeWithPlats(@PathVariable String reference) {
+        return commandeService.deleteCommandeWithPlats(reference);
     }
 
     public CommandeService getCommandeService() {

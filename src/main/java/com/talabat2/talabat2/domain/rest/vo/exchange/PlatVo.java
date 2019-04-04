@@ -16,7 +16,7 @@ public class PlatVo {
     private Long id;
     private String nom;
     private String reference_plat;
-    private List<PlatRestaurantVo> platRestaurantsVo;
+    private List<PlatRestaurantVo> platRestaurantVo;
     
 
     public String getReference_plat() {
@@ -27,14 +27,15 @@ public class PlatVo {
         this.reference_plat = reference_plat;
     }
 
-    public List<PlatRestaurantVo> getPlatRestaurantsVo() {
-        return platRestaurantsVo;
+    public List<PlatRestaurantVo> getPlatRestaurantVo() {
+        return platRestaurantVo;
     }
 
-    public void setPlatRestaurantsVo(List<PlatRestaurantVo> platRestaurantsVo) {
-        this.platRestaurantsVo = platRestaurantsVo;
+    public void setPlatRestaurantVo(List<PlatRestaurantVo> platRestaurantVo) {
+        this.platRestaurantVo = platRestaurantVo;
     }
 
+ 
     public Long getId() {
         return id;
     }

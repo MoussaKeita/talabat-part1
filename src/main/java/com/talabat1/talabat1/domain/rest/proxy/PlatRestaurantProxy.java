@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  *
  * @author Keita Moussa
  */
-@FeignClient(name="microservice1-talabat2" , url="localhost:8099")
+@FeignClient(name="microservice1-talabat2" , url="localhost:8090")
 public interface PlatRestaurantProxy {
     
     @GetMapping("talabat2/plats/reference/{reference}")//le lien complet//

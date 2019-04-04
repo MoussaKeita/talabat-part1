@@ -20,5 +20,5 @@ public interface CommandeService {
     /****************************************************/
     public int payer (String reference , Double montant);
    // public int modifier(Commande commande);
-    public int supprimer(String reference);
+    public int deleteCommandeWithPlats(String reference);
 }

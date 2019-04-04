@@ -49,8 +49,9 @@ public class IdentificationServiceImpl implements IdentificationService {
         if (res == 0 || res == -1) {
             return null;
         } else {
-            return clientDao.save(c);
+            clientDao.save(c);
         }
+        return c;
     }
 
     public ClientDao getClientDao() {
